@@ -1,0 +1,123 @@
+/* Base styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffff;
+}
+
+/* Header styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #a20b27;
+    color: #fff;
+}
+
+
+
+.main-nav button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #d1d1d1;
+}
+
+.sub-header button {
+    background-color: #a20b27;
+    color: #ffffff;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+/* Main content styles */
+main {
+    padding: 2rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 4rem;
+}
+
+.product {
+    padding: 1rem;
+    background-color: #fff;
+    border: 2px solid #d1d1d1;
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 #333333;
+    width: 400px;
+    min-height: 150px;
+    display:grid;
+    transition: .5s;
+}
+.product:hover {
+
+    box-shadow: 5px 5px 0 #a20b27;
+    transition: .5s;
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    background-color: #d1d1d1;
+    border-radius: 10px;
+    position:relative;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-name,
+.product-price,
+.product-seller {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    border-bottom: 1px solid  #cacaca;
+}
+
+/* Customize these styles based on your preferences */
+h1 {
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+p {
+    font-size: 1rem;
+    margin: 0;
+    color: #333333;
+    font-weight: bold;
+}
+
+button {
+    border-radius: 10px;
+    transition: .5s;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #333333;
+    color: #d1d1d1;
+    transition: .5s;
+}
+
+
