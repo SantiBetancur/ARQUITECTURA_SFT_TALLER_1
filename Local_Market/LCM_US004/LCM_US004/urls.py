@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from community_main_page import views as cm_v
+from register_page import views as rp_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('EAFIT/home/', cm_v.home)
+    path('EAFIT/home/', cm_v.home),
+    path('home/register_page',rp_v.register)
 ]
