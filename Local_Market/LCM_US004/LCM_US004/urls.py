@@ -17,8 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from community_main_page import views as cm_v
+from publish_product import views as ps_v
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('EAFIT/home/', cm_v.home)
-]
+    path('EAFIT/home/', cm_v.home),
+    path('EAFIT/username/Profile/', ps_v.publish)
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

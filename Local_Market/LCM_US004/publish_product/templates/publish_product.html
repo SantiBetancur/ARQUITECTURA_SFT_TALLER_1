@@ -1,0 +1,65 @@
+{% extends 'home.html' %}
+
+
+{% block content %}
+<div class="screen_content">
+
+    
+
+    <form method="POST" class="publish_fields">{% csrf_token %}
+
+        <div class="form-group">
+            <!-- {{form.name.errors}} --> 
+            <label for="{{form.name.id_for_label}}">Product Name:</label>
+            {{form.name}}
+        </div>
+
+        <div class="form-group">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.price.id_for_label}}">Product Price:</label>
+            {{form.price}}
+        </div>
+
+
+        <div class="form-group">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.description.id_for_label}}">Product Description:</label>
+            {{form.description}}
+        </div>
+
+        <div class="form-group">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.image.id_for_label}}">Null Rating: </label>
+            {{form.rating}}
+        </div>
+
+        <div class="form-group-image">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.image.id_for_label}}">Upload Image:</label>
+            {{form.image}}
+        </div>
+
+        
+        
+
+        <div class="submit-btn">
+            <input type = "submit" value="Create Product" class="forms_submit">
+        </div>
+
+
+    </form>
+    
+    
+
+    <div class="emphasis_h1">
+        <h1>Tell us about <br>
+            your product.
+        </h1>
+    </div> 
+    
+    
+
+</div>
+
+{% endblock content %}
+       
