@@ -1,11 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Hello</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EAFIT</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
     </head>
     <body>
-        <h1>Welcome to my website</h1>
-        <h2>hello</h2>
-        hello world!
+        <header class="main-header">
+            <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
+            <nav class="main-nav">
+                <button>Back</button>
+                <button>Log In</button>
+                <button>About</button>
+                <button>I Am Seller</button>
+            </nav>
+        </header>
+        <div class="registration-body" >
+            <header class="registration-header"></header>
+        </div>
     </body>
 </html>
