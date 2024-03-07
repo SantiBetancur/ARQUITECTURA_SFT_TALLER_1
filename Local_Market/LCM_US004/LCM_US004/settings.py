@@ -38,8 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'community_main_page',
-    'publish_product'
-    'community_main_page',
+    'publish_product',
     'register_page'
 ]
 

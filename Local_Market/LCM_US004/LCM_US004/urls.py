@@ -25,5 +25,6 @@ from register_page import views as rp_v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('EAFIT/home/', cm_v.home),
-    path('EAFIT/username/Profile/', ps_v.publish)
+    path('EAFIT/username/Profile/', ps_v.publish),
+    path('home/register/', rp_v.register)
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
