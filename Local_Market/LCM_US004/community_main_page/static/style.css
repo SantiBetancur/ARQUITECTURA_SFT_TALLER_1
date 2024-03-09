@@ -6,6 +6,18 @@ body {
     background-color: #ffff;
 }
 
+.register-body {
+    width: 675px;
+    height: 946px;
+    background: linear-gradient(180deg, #3B719F 0%, rgba(57, 52, 89, 0.00) 100%);
+    mix-blend-mode: plus-darker;
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
 /* Header styles */
 .main-header {
     display: flex;
@@ -14,6 +26,19 @@ body {
     padding: 1rem;
     background-color: #a20b27;
     color: #fff;
+}
+
+.register-block{
+    width: 425px;
+    height: 71px;
+    background: #A20B27;
+    position: relative;
+    top: 228px;
+    left: 120px;
+    margin-bottom: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -65,6 +90,7 @@ body {
     border-radius: 10px;
 }
 
+
 /* Main content styles */
 main {
     padding: 2rem;
@@ -98,7 +124,7 @@ main {
     height: 150px;
     background-color: #d1d1d1;
     border-radius: 10px;
-    position:relative;
+    position:absolute;
     align-items: center;
     justify-content: center;
 }
@@ -109,6 +135,18 @@ main {
     margin-bottom: 1rem;
     margin-top: 1rem;
     border-bottom: 1px solid  #cacaca;
+}
+
+.Register-text {
+    width: 223px;
+    height: 35px;
+    color: rgba(180, 180, 180, 0.54);
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center; /* Center text horizontally */
 }
 
 /* Customize these styles based on your preferences */
