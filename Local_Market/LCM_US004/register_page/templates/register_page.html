@@ -11,21 +11,39 @@
         <header class="main-header">
             <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
             <nav class="main-nav">
-                <button>Back</button>
-                <button>Log In</button>
-                <button>About</button>
-                <button>I Am Seller</button>
+                <form action="http://127.0.0.1:8000/EAFIT/home/">
+                    <button>Back</button>
+                    <button>Log In</button>
+                    <button>About</button>
+                    <button>I Am Seller</button>
+                </form>
             </nav>
         </header>
+
         <div class="register-body">
-            <div class="register-block" id="Username">
-                <p class="register-text">
-                    <label for="Tp-username">USERNAME:</label>
-                    <input type="text" name="Tp-username">
-                </p>
-            </div>
-            <div class="register-block" id="Email">hola</div>
-            <div class="register-block" id="Password">hola</div>
+            <form action="http://127.0.0.1:8000/EAFIT/home/">
+                <div class="register-block" id="Username">
+                    <p class="register-text">
+                        <label for="Tp-username">USERNAME:</label>
+                        <input type="text" name="Tp-username">
+                    </p>
+                </div>
+                <div class="register-block" id="Email">
+                    <p class="register-text">
+                        <label for="Tp-email">Email:</label>
+                        <input type="text" name="Tp-email">
+                    </p>
+                </div>
+                <div class="register-block" id="Password">
+                    <p class="register-text">
+                        <label for="Tp-password">Password:</label>
+                        <input type="text" name="Tp-password">
+                    </p>
+                </div>
+                <button class="register_button" type="submit">
+                    SUBMIT
+                </button>
+            </form>
         </div>
     </body>
 </html>
