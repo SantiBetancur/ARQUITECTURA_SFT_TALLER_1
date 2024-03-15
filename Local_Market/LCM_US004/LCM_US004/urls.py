@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from community_main_page import views as cm_v
 from publish_product import views as ps_v
+from register_page import views as rp_v
 from django.conf import settings
 from django.conf.urls.static import static
 from register_page import views as rp_v
