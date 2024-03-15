@@ -5,11 +5,10 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = products
-        fields = ['name', 'price', 'description', 'image', 'rating']
+        fields = ['name', 'price', 'description', 'image']
 
 
     name = forms.CharField(widget=forms.TextInput(attrs={'class':'forms-control'}), max_length=50)    
     price = forms.CharField(widget=forms.TextInput(attrs={'class':'forms-control'}), max_length=10)
     description = forms.CharField(widget=forms.TextInput(attrs={'class':'forms-control'}), max_length=250)
     image = forms.ImageField(label = 'Avatar', required=False, widget=forms.FileInput(attrs = {'class':'forms-control'}))
-    rating = forms.IntegerField(widget=forms.TextInput(attrs={'class':'forms-control'}))
