@@ -20,30 +20,31 @@
             </nav>
         </header>
 
-        <div class="register-body">
-            <form action="http://127.0.0.1:8000/EAFIT/home/">
-                <div class="register-block" id="Username">
-                    <p class="register-text">
-                        <label for="Tp-username">USERNAME:</label>
-                        <input type="text" name="Tp-username">
-                    </p>
-                </div>
-                <div class="register-block" id="Email">
-                    <p class="register-text">
-                        <label for="Tp-email">Email:</label>
-                        <input type="text" name="Tp-email">
-                    </p>
-                </div>
-                <div class="register-block" id="Password">
-                    <p class="register-text">
-                        <label for="Tp-password">Password:</label>
-                        <input type="text" name="Tp-password">
-                    </p>
-                </div>
-                <button class="register_button" type="submit">
-                    SUBMIT
-                </button>
-            </form>
-        </div>
+
+        <form method="POST" class="publish_fields">{% csrf_token %}
+            <div class="register-body">
+                    <div class="register-block" id="Username">
+                        <p class="register-text">
+                            <label for="form.username.id_for_label">Username:</label>
+                            {{form.username}}
+                        </p>
+                    </div>
+                    <div class="register-block" id="Email">
+                        <p class="register-text">
+                            <label for="form.email.id_for_label">Email:</label>
+                            {{form.email}}
+                        </p>
+                    </div>
+                    <div class="register-block" id="Password">
+                        <p class="register-text">
+                            <label for="form.password.id_for_label">Password:</label>
+                            {{form.password}}
+                        </p>
+                    </div>
+                    <div class="register_button">
+                        <input type = "submit" value="Create Account" class="forms_submit">
+                    </div>        
+            </div>
+        </form>
     </body>
 </html>
