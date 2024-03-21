@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Market</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header class="main-header">
+
+        <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM Logo" class="logo" width="80">Local Market</h1>
+        <nav class="main-nav">
+            <button>Back</button>
+            <button>Log In</button>
+            <button>About</button>
+            <button>I am a Seller</button>
+        </nav>
+    </header>
+    <header class="sub-header">
+        <p>Communities</p>
+        <input type="search" placeholder="Search Communities">
+        <span>Available Community: 30</span>
+    </header>
+    <main>
+        <div class="community-grid">
+            {% for p in dataset %}
+            <div class="community-card">
+                <div style="height: 148px;">
+                    <img src="{{p.image.url}}" alt="Community Image" class="community-image">
+                </div>
+                <div class="community-info">
+                    <h2 class="community-name">{{p.name}}</h2>
+                    <p class="community-detail">Sellers: <span>{{p.sellers}}</span></p>
+                    <p class="community-detail">Products: <span>{{p.products}}</span></p>
+                    <p class="community-detail">Location: <span>{{p.location}}</span></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <!-- <script src="{% static 'script.js' %}"></script> 
+</body>
+</html>
