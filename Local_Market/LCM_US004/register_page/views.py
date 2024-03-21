@@ -14,6 +14,7 @@ def register(request):
         if form.is_valid():
             form.save()
         return HttpResponseRedirect('/EAFIT/home/')
+    
 
     context['form'] = form
     return render(request, "register_page.html", context)
