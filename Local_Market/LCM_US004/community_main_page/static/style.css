@@ -122,7 +122,7 @@ main {
 
 .product {
     padding:0;
-    background-color: #363636;
+    background-color: #A20B27;
     border-radius: 10px;
     width: 250px;
     min-height: 150px;
@@ -132,7 +132,8 @@ main {
 }
 .product:hover {
 
-    background-color: #A20B27;
+    cursor: pointer;
+    box-shadow: 3px 3px 0px #333333;
     transition: .5s;
 }
 
@@ -159,21 +160,21 @@ main {
     margin-bottom:.4rem;
     margin-left: 5%;
     margin-right: 5%;
-
+    color: #ffffff;
 }
 
 .product-name {
-    color:#ffffff;
+    
     font-size: 1rem;
 }
 .product-price{
-    color: #ffffff;
+    
     font-size: 1rem;
     font-weight: bold;
   
 }
 .product-seller {
-    color: #ffffff;
+        
     font-size: 1.2rem;
     font-weight: 100;
     border-top: 2px solid #ffffff;
