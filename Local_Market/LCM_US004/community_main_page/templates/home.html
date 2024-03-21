@@ -14,13 +14,14 @@
         <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
         <nav class="main-nav">
             <button>Back</button>
-            <button>Log In</button>
+            <button>
+                <a href="/EAFIT/Login/" style="text-decoration: none; color: white;">Log In</a>
+            </button>
             <button>About</button>
             <button>I Am Seller</button>
         </nav>
     </header>
     <header class="sub-header">
-        <p>Current Community:</p>
         <p>EAFIT</p>
         <form method= "GET" class="search_field">
             <input type="text" class="serach_input" placeholder="Put any name or price" name="search">
@@ -40,12 +41,13 @@
             {% for p in dataset %}
 
                 <div class="product">
-                    {% if p.image %}
-                    <div class="product-image"><img src="{{p.image.url}}" alt="Product_Photo"></div>
-                    {% else %}
-                    <div class="product-image"><img src="" alt="Void"></div>
-                    {% endif %}
-                    <p class="product-seller">User</p>
+                     {% if p.image %} 
+                     <div class="product-image"><img src={{p.image.url}} alt="Product_Photo" ></div>
+                    
+                     {% else %} 
+                     <div class="product-image"><img src="{% static '/Images/ej1.jpeg' %}" alt="Product_Photo"></div>
+                     {% endif %}
+                    <p class="product-seller">Seller Name</p>
                     <p class="product-name">{{p.name}}</p>
                     <p class="product-price">$ {{p.price}}</p>
                     

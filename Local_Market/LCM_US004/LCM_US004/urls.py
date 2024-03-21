@@ -22,6 +22,8 @@ from community_main_page import views as cm_v
 from register_page import views as rp_v
 from communityPage import views as cp_v
 from publish_product import views as ps_v
+from register_page import views as rp_v
+from Login import views as lg_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,3 +34,7 @@ urlpatterns = [
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('EAFIT/username/Profile/', ps_v.publish),
+    path('EAFIT/register/', rp_v.register),
+    path('EAFIT/Login/', lg_v.Login)
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

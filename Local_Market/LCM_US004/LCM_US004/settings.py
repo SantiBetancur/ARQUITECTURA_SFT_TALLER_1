@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'register_page',
     'communityPage',
     'publish_product',
+    'register_page',
+    'Login',
 ]
 
 MIDDLEWARE = [
