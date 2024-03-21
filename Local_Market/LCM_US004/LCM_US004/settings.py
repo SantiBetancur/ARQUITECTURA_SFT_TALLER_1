@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'community_main_page',
     'publish_product',
-    'register_page'
+    'register_page',
+    'Sellerprofile'
 ]
 
 MIDDLEWARE = [
@@ -84,7 +85,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': '0610Mysql+'
+        'PASSWORD': 'dedoverde5002*'
 
     }
 }

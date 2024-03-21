@@ -22,10 +22,12 @@ from register_page import views as rp_v
 from django.conf import settings
 from django.conf.urls.static import static
 from register_page import views as rp_v
+from Sellerprofile import views as sp_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('EAFIT/home/', cm_v.home),
     path('EAFIT/username/Profile/', ps_v.publish),
-    path('home/register/', rp_v.register)
+    path('home/register/', rp_v.register),
+    path('home/seller/', sp_v.Seller)
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
