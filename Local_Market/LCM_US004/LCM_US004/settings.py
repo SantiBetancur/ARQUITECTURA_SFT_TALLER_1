@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'community_main_page',
     'publish_product',
     'register_page',
-    'Sellerprofile'
+    'Sellerprofile',
+    'Login',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +87,6 @@ DATABASES = {
         'PORT': '3306',
         'USER': 'root',
         'PASSWORD': 'dedoverde5002*'
-
     }
 }
 
