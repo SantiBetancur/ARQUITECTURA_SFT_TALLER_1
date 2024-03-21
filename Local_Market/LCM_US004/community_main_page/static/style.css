@@ -84,6 +84,8 @@ body {
     z-index: 1000;
     
 }
+<<<<<<< HEAD
+=======
 .search_field {
     display: flex;
     justify-content:end;
@@ -103,6 +105,7 @@ body {
     border-radius: 5px;
 
 }
+>>>>>>> 6f536f6ca5a88657d34eb83fb9e0b5d1e2432bde
 
 .sub-header button {
     background-color: #a20b27;
@@ -225,6 +228,29 @@ button:hover{
     transition: .5s;
 }
 
+/*Community Page Styles*/
+.community-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 3fr);
+    gap: auto;
+}
+
+.community-card {
+    background-color: #F2F2F2;
+    display: grid;
+    height: 150px;
+    border: 1px solid #000;
+    grid-template-columns: repeat(2, 3fr);
+    border-radius: 8px; /* Adjust as needed for rounded corners */
+}
+
+.community-image {
+    border-radius: 8px;
+    float: left;
+    width: auto; /* This will make the image fill the container */
+    height: 100%; /* This keeps the image aspect ratio intact */
+ /* Assuming a white background for the placeholder */
+}
 .app-content {
     width: 100%;
     display: flex;
@@ -293,8 +319,24 @@ button:hover{
     right: 3%;
     border-right: 3px solid #A20B27;
 
-  }
+.community-info {
+    float: right;   
+    text-align: left;
+}
 
+.community-name {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin-bottom: 0.5em;
+}
+
+.community-detail {
+    font-size: 1em; /* Adjust size as needed */
+    margin-bottom: 0.25em;
+}
+
+.community-detail span {
+    font-weight: bold; /* Makes the numbers bold as seen in the image */
+}
   .emphasis_h1 h1{
     text-align: end;
     font-size: 2.5rem;
@@ -330,4 +372,17 @@ button:hover{
   }
 
 
+.community-name {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin-bottom: 0.5em;
+}
+
+.community-detail {
+    font-size: 1em; /* Adjust size as needed */
+    margin-bottom: 0.25em;
+}
+
+.community-detail span {
+    font-weight: bold; /* Makes the numbers bold as seen in the image */
+}
 
