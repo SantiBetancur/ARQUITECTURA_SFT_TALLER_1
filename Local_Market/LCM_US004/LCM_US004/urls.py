@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from community_main_page import views as cm_v
@@ -27,14 +27,15 @@ from Login import views as lg_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('EAFIT/home/', cm_v.home),
-    path('home/register_page',rp_v.register),
+    path('available_communities/EAFIT/products/', cm_v.home),
+    path('available_communities/EAFIT/products/details/<int:product_id>', cm_v.prod_detail),
+    path('register/',rp_v.register),
     path('',cp_v.communityPage),
-    path('EAFIT/username/Profile', ps_v.publish)
-]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    path('EAFIT/username/Profile/', ps_v.publish),
-    path('EAFIT/register/', rp_v.register),
-    path('EAFIT/Login/', lg_v.Login)
-] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+    path('available_communities/',cp_v.communityPage),
+    path('logout/', cp_v.user_logout),
+    path('EAFIT/username/newProduct/', ps_v.publish),
+    path('login/',lg_v.Login),
+    ]
+   
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

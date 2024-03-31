@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'register_page',
     'communityPage',
     'publish_product',
-    'register_page',
     'Login',
 ]
 
@@ -87,11 +86,11 @@ WSGI_APPLICATION = 'LCM_US004.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'local_market',
+        'NAME': 'Local_Market',
         'HOST' : 'localhost',
         'PORT' : '3306',
         'USER' : 'root',
-        'PASSWORD' : '2005'
+        'PASSWORD' : '0610Mysql+'
     }
 }
 
@@ -136,3 +135,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_files')
+MEDIA_URL  = '/media_files/'
+

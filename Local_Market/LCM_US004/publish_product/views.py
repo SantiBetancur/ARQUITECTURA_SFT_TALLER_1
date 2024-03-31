@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from publish_product.forms import ProductForm
-from community_main_page.models import products
+from django.contrib.auth import logout, get_user
 # Create your views here.
 
 def publish(request):
@@ -11,9 +11,20 @@ def publish(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect('/EAFIT/home/')   
-    
+            return redirect('/EAFIT/products/')  
+        context["message"] = "Error" 
+        return render(request, "publish_product.html", context)
     context['form'] = form
+
+    user = get_user(request)
+    current_user = ""
+    if user.is_authenticated:
+        current_user = user
+        context['session_user'] = current_user.username
     return render(request, "publish_product.html", context)
+
+def user_logout(request):
+    logout(request)
+    return redirect('/')
  
             

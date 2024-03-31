@@ -5,19 +5,23 @@ from django.contrib.auth import authenticate,login
 # Create your views here.
 
 def Login(request):
-    form = LoginForm
-    message = ''
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            user = authenticate(
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password'],
-            )
-            if user is not None:
+    form = LoginForm()
+    if request.method == 'GET':
+        return render (request, 'Login.html', {'form':form})
+    else:
+        username = request.POST['username']
+        password = request.POST['password']
+
+        #Authenticate user with Django
+        user = authenticate(request, username = username, password = password)
+
+        try:
+            if(user is not None):
+                #Login user in the database
+                print(f'User: {username} is log in')
                 login(request, user)
-                message = f'Hello {user.username}! You have been logged in'
+                return redirect("/available_communities/")
             else:
-                message = 'Login failed!'
-    return render(
-        request, 'Login.html', context={'form': form, 'message': message})
+                return render(request, 'Login.html',{'form':form, 'log_error_user':'Nombre de usuario o contraseña incorrectos.'})
+        except:
+            return render(request, 'Login.html',{'form':form, 'log_error_user':'Nombre de usuario o contraseña incorrectos.'})

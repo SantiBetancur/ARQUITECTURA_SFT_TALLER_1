@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -11,40 +12,78 @@
         <header class="main-header">
             <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
             <nav class="main-nav">
-                <form action="/EAFIT/home/">
-                    <button>Back</button>
-                    <button>Log In</button>
-                    <button>About</button>
-                    <button>I Am Seller</button>
-                </form>
+                <a href="/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                      </svg>
+                </a>
+                <a href="../login/" >
+                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                 </svg>
+                </a>
+              
             </nav>
         </header>
-
-
-        <form method="POST" class="publish_fields">{% csrf_token %}
-            <div class="register-body">
-                    <div class="register-block" id="Username">
-                        <p class="register-text">
-                            <label for="form.username.id_for_label">Username:</label>
-                            {{form.username}}
-                        </p>
-                    </div>
-                    <div class="register-block" id="Email">
-                        <p class="register-text">
-                            <label for="form.email.id_for_label">Email:</label>
-                            {{form.email}}
-                        </p>
-                    </div>
-                    <div class="register-block" id="Password">
-                        <p class="register-text">
-                            <label for="form.password.id_for_label">Password:</label>
-                            {{form.password}}
-                        </p>
-                    </div>
-                    <div class="register_button">
-                        <input type = "submit" value="Create Account" class="forms_submit">
-                    </div>        
+        <header class="sub-header">
+            <div class="errors-notification">
+                <p>{{reg_error_user}}</p>
+                <p>{{reg_error_password_match}}</p>
+                <p>{{reg_error_password_val}}</p>
             </div>
-        </form>
+            <nav style="display: flex;">
+                <p style="color: #ffffff; font-size: 20px; font-weight: bold; margin-right: 30px;">
+                    Inicia sesión en tu cuenta 
+                </p>   
+                    <a href="../login/">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"/>
+                                <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                              </svg>
+                        </a>
+            </nav>
+            
+        </header>
+
+        <div class="app-content" style="margin-top: 15%;">
+            {% block content %}
+        
+                <form method="POST" class="publish_fields">{% csrf_token %}
+                        
+                        <div class="form-group" >
+                
+                                <label for="form.username.id_for_label">Nombre de Usuario</label>
+                                {{form.username}}
+                        
+                        </div>
+                        <div class="form-group" >
+                        
+                                <label for="form.email.id_for_label">Email</label>
+                                {{form.email}}
+
+                        </div>
+                        <div class="form-group">
+                        
+                                <label for="form.password.id_for_label">Contraseña (entre 8 y 10 carácteres)</label>
+                                {{form.password}}
+
+                        </div>
+                        <div class="form-group">
+                        
+                            <label>Confirma la contraseña</label>
+                            {{form.password_confirmation}}
+
+                    </div>
+                        <div class="submit-btn">
+                        <input type = "submit" value="Crear Cuenta" class="forms_submit">
+                        </div>        
+
+                </form>
+
+                
+        {% endblock %}
+        </div>
     </body>
 </html>
+    
