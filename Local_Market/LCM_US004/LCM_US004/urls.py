@@ -33,5 +33,5 @@ urlpatterns = [
     path('home/register/', rp_v.register),
     path('home/seller/', sp_v.Seller),
     path('EAFIT/register/', rp_v.register),
-    path('EAFIT/Login/', lg_v.Login),
+    path('EAFIT/Login/', lg_v.index),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
