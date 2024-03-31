@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'communityPage',
     'publish_product',
     'register_page',
-    'Sellerprofile',
     'Login',
 ]
 
@@ -85,10 +84,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Local_Market',
-        'HOST': 'localhost',
-        'PORT': '3306',
-        'USER': 'root',
-        'PASSWORD': '0610Mysql+'
+        'HOST' : 'localhost',
+        'PORT' : '3306',
+        'USER' : 'root',
+        'PASSWORD' : '0610Mysql+'
     }
 }
 
@@ -133,3 +132,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media_files')
+MEDIA_URL  = '/media_files/'
+

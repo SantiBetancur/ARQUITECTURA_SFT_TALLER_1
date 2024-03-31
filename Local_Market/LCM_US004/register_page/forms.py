@@ -1,11 +1,15 @@
 from django import forms
-from register_page.models import User
+from register_page.models import Seller
 
-class UserForm(forms.ModelForm):
+class UserForm(forms.Form):
+    username = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder':'Local Market','autocomplete':'new-username'}))
+    email = forms.CharField(label="",    widget=forms.TextInput(attrs={'placeholder':'algo@email.com','autocomplete':'new-email'}))
+    password = forms.CharField(label="", widget=forms.PasswordInput(attrs={'placeholder':'Debe tener al menos una: mayúscula, minúscula y número','autocomplete':'new-password'}))
+    password_confirmation = forms.CharField(label="", widget=forms.PasswordInput(attrs={'placeholder':'Confirmación','autocomplete':'new-password'}))
+
+class SellerForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
+        model = Seller   
+        fields = "__all__"
 
-    username = forms.CharField(widget=forms.TextInput(attrs={'class':'forms-control'}), max_length=20)
-    email = forms.CharField(widget=forms.TextInput(attrs={'class':'forms-control'}), max_length=30)
-    password = forms.CharField(widget=forms.TextInput(attrs={'class':'forms-control'}), max_length=15)
+   
