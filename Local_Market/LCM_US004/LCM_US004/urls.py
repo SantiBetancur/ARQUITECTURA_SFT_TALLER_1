@@ -24,6 +24,7 @@ from communityPage import views as cp_v
 from publish_product import views as ps_v
 from register_page import views as rp_v
 from Login import views as lg_v
+from profile_page import views as pp_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,6 +36,7 @@ urlpatterns = [
     path('logout/', cp_v.user_logout),
     path('EAFIT/username/newProduct/', ps_v.publish),
     path('login/',lg_v.Login),
+    path('available_communities/profile/', pp_v.profile_page),
     ]
    
 if settings.DEBUG:
