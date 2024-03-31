@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Local Market</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <header class="main-header">
+            <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
+            <nav class="main-nav">
+                <button>Home</button>
+                <button>Change community</button>
+                <button>My Cart</button>
+            </nav>
+        </header>
+
+        <div class="seller-picture">
+            <img src="{% static '/Images/men.jpg' %}" alt="seller's image">
+        </div>
+
+        <div class="conteiner-seller">
+            <h2>Sergio Velazquez</h2>
+            <h3>Seller - Local market</h3>
+        </div>
+
+        <div class="text-seller">
+            <h2>About me</h2>
+            <p>Contenido del contenedor...</p>
+        </div>
+
+        <footer class="main-footer">
+        </footer>
+
+    </body>
+</html>
