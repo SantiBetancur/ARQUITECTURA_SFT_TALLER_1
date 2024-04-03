@@ -10,26 +10,44 @@
     <body>
         <header class="main-header">
             <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
-            <nav class="main-nav">
-                <button>Home</button>
-                <button>Change community</button>
-                <button>My Cart</button>
-            </nav>
+            <form action="/EAFIT/home/">
+                <nav class="main-nav">
+                    <button>Home</button>
+                    <button>Change community</button>
+                    <button>My Cart</button>
+                </nav>
+            </form>
         </header>
 
+
         <div class="seller-picture">
-            <img src="{% static '/Images/men.jpg' %}" alt="seller's image">
+            <img src="{{ seller.photo.url }}" alt="{{ seller.name }} Photo">
         </div>
 
+
         <div class="conteiner-seller">
-            <h2>Sergio Velazquez</h2>
+            <h2>{{seller.name}}</h2>
             <h3>Seller - Local market</h3>
         </div>
 
         <div class="text-seller">
             <h2>About me</h2>
-            <p>Contenido del contenedor...</p>
+            <p>{{seller.description}}</p>
         </div>
+
+        <ul class="word-list">
+            <li>Age:</li>
+            <li>Email:</li>
+            <li>Location:</li>
+            <li>Phone:</li>
+        </ul>
+
+        <ul class="word">
+            <li>{{seller.age}}</li>
+            <li>{{seller.email}}</li>
+            <li>{{seller.location}}</li>
+            <li>{{seller.phone}}</li>
+        </ul>
 
         <footer class="main-footer">
         </footer>

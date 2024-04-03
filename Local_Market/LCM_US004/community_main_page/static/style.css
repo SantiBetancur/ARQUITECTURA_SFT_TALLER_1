@@ -374,7 +374,7 @@ button:hover{
     margin-left: 150px;
     margin-top: 130px;
     width: 380px;
-    height: 280px;
+    height: 320px;
     overflow: hidden;
 }
 
@@ -408,6 +408,7 @@ button:hover{
     font-weight: bold; /* Makes the numbers bold as seen in the image */
 }
 
+
 .text-seller h2{
     font-size: 35px; /* Tamaño de la fuente */
     color: #a20b27; /* Color del texto */
@@ -419,11 +420,12 @@ button:hover{
 }
 
 .text-seller p{
-    font-size: 15px;
+    font-size: 18px;
     color: #000000; /* Color del texto */
     font-weight: lighter; /* Peso de la fuente */
     font-family: "Cambria", sans-serif;
     margin-left: 150px;
+    max-width: 380px;
 }
 
 .conteiner-seller {
@@ -449,4 +451,36 @@ button:hover{
     margin-top: 0; /* Elimina el margen superior por defecto */
     margin-bottom: 15px; /* Margen inferior del subtítulo */
     font-weight: lighter;
+}
+
+
+.word-list {
+    list-style: none;
+
+    padding: 0;
+    margin-left: 675px;
+    margin-top: -400px;
+}
+
+.word-list li {
+    font-size: 18px;
+    color: #a20b27;
+    font-weight: bold;
+    font-family: "Cambria", sans-serif;
+    margin-bottom: 90px; /* Espacio entre cada palabra */
+}
+
+.word {
+    list-style: none;
+    padding: 0;
+    margin-left: 1000px;
+    margin-top: -443px;
+}
+
+.word li {
+    font-size: 18px;
+    color: #000000;
+    font-weight: lighter;
+    font-family: "Cambria", sans-serif;
+    margin-bottom: 90px; /* Espacio entre cada palabra */
 }
