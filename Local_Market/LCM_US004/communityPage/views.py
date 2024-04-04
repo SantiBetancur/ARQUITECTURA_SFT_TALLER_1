@@ -16,7 +16,7 @@ def communityPage(request):
     context = {
         'dataset': communities_queryset
     }
-    
+
     if not communities_queryset.exists():
         context['no_results'] = True
 
@@ -26,7 +26,7 @@ def communityPage(request):
     if user.is_authenticated:
         current_user = user
         context['session_user'] = current_user.username
-        return render(request, 'community_logged_page.html', context)    
+        return render(request, 'community_logged_page.html', context)
 
     return render(request, "community_page.html", context)
 

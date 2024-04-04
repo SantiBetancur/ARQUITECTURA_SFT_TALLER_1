@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'publish_product',
     'register_page',
     'Login',
+    'profile_page',
+    'Sellerprofile'
 ]
 
 MIDDLEWARE = [
