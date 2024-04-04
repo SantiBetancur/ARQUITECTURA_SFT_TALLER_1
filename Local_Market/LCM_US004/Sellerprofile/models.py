@@ -10,3 +10,4 @@ class Seller(models.Model):
     age = models.IntegerField(null=True)
     description = models.TextField(max_length=400)
     photo = models.ImageField(upload_to='seller_photos/', null=True, blank=True)
+    permission = models.FileField(upload_to='documents/', null=True)

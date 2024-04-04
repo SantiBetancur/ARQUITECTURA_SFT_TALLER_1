@@ -15,16 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from community_main_page import views as cm_v
 from communityPage import views as cp_v
 from publish_product import views as ps_v
 from register_page import views as rp_v
-from Sellerprofile import views as sp_v
 from Login import views as lg_v
-
+from profile_page import views as pp_v
+from Sellerprofile import views as sp_v
 
 
 urlpatterns = [
@@ -36,4 +36,5 @@ urlpatterns = [
     path('home/seller/', sp_v.seller_info),
     path('EAFIT/register/', rp_v.register),
     path('EAFIT/Login/', lg_v.Login),
+    path('available_communities/profile/', pp_v.profile_page),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
