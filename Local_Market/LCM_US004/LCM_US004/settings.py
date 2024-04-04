@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'publish_product',
     'register_page',
     'Login',
-    'profile_page'
+    'profile_page',
+    'Sellerprofile'
 ]
 
 MIDDLEWARE = [
@@ -88,7 +89,11 @@ DATABASES = {
         'HOST' : 'localhost',
         'PORT' : '3306',
         'USER' : 'root',
+<<<<<<< HEAD
         'PASSWORD' : 'Jeronimo1303'
+=======
+        'PASSWORD' : 'dedoverde5002*'
+>>>>>>> b5776734264bd56fd169747441243434fee431b6
     }
 }
 

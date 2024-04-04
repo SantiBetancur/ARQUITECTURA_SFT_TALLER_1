@@ -2,6 +2,7 @@
 html {
     width: 100%;
 }
+
 body {
     font-family: sans-serif;
     margin: 0;
@@ -11,12 +12,12 @@ body {
     --_s: calc(2*var(--s)) calc(2*var(--s));
     --_g: 35.36% 35.36% at;
     --_c: #0000 66%,#160f29 68% 70%,#377bf800 72%;
-    background: 
-    radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
-    radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
-    radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
-    radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
-    repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+    background:
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s),
+    radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s),
+    radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s),
+    radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s),
+    repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s),
     radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
   background-attachment: fixed;
 }
@@ -137,15 +138,15 @@ main {
     display: block;
     width: 100%;
     height: auto;
-    z-index: 0;   
+    z-index: 0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    
-    
+
+
 }
 .product p {
     margin: .5rem 1rem .5rem 1rem;
-    font-weight: bold;  
+    font-weight: bold;
 }
 
 .product-name {
@@ -156,7 +157,7 @@ main {
     font-size: 1rem;
     color:#d34862;
 }
-.product-seller {      
+.product-seller {
     font-size: 1.4rem;
     color: #ffffff;
     padding-top: 10px;
@@ -169,9 +170,6 @@ main {
     left: 5%; 
     margin-top: 7%; 
     position: absolute;
-}
-.profile_favorites{
-    
 }
 
 /* Customize these styles based on your preferences */
@@ -219,7 +217,7 @@ button:hover{
     cursor: pointer;
     box-shadow: 3px 3px 0px #ffffff;
     color: #ffffff;
-    transition: .5s;    
+    transition: .5s;
 }
 
 /*Community Page Styles*/
@@ -230,17 +228,17 @@ button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-      
+
 }
 
 .publish_fields {
-   
+
     width: 35%;
     padding: 80px 20px 80px 20px;
     border-radius: 20px;
     background-color: #ffffff2f;
   }
-  
+
   .form-group, .form-group-textArea {
     margin-bottom: 1rem;
     width: 100%;
@@ -248,15 +246,15 @@ button:hover{
     background-color: #A20B27;
     transition: .5s;
     overflow: hidden;
-   
+
 
   }
   .form-group-textArea {
     margin-right: 30px;
   }
 
-  
-  
+
+
  .form-group label, .form-group-textArea label {
     display: flex;
     margin-bottom: 0.5rem;
@@ -267,11 +265,11 @@ button:hover{
     padding: 10px;
     transition: .5s;
     background-color: #A20B27;
-    
+
   }
 
 
-  
+
 .form-group input{
     width: 100%;
     height: 30px;
@@ -281,7 +279,7 @@ button:hover{
     transition: .5s;
     border: solid 1px white;
     background-color: #fff;
-     
+
 }
 
 .form-group-textArea textarea{
@@ -292,7 +290,7 @@ button:hover{
     border-bottom-right-radius: 10px ;
     transition: .5s;
     border: solid 1px white;
-    
+
 }
 .form-group input:hover, .form-group-textArea textarea:hover{
     box-shadow: 3px 3px 0px #A20B27;
@@ -331,9 +329,23 @@ button:hover{
     transition: .5s;
 }
 .submit-btn input:hover{
-    
+
     color: #eeeeee;
     box-shadow: 3px 3px 0px #ffffff;
+}
+
+
+.seller-picture{
+    margin-left: 150px;
+    margin-top: 130px;
+    overflow: hidden;
+    width: 380px;
+    height: 320px;
+}
+.seller-picture img {
+    width: 380px;
+    height: auto;
+
 }
 
 .user-seller-reg {
@@ -347,6 +359,7 @@ button:hover{
     padding: 20px;
     box-shadow: 3px 3px 0px #ffffff;
 }
+
 .user-seller-reg p {
     font-size: 18px;
     color: #fff;
@@ -398,6 +411,22 @@ button:hover{
     height: auto;
 }
 
+
+.community-name {
+    font-size: 1.5em; /* Adjust size as needed */
+    margin-bottom: 0.5em;
+}
+
+.community-detail {
+    font-size: 1em; /* Adjust size as needed */
+    margin-bottom: 0.25em;
+}
+
+.community-detail span {
+    font-weight: bold; /* Makes the numbers bold as seen in the image */
+}
+
+
 .prod-detail {
     width: 40%;
     height: 480px;
@@ -408,12 +437,14 @@ button:hover{
     justify-content: start;
     overflow:hidden;
 }
+
 .prod-detail h2 {
     font-size: 25px;
     color: white;
     padding: 20px;
     background-color: #A20B27;
 }
+
 .min-details {
     background-color: #0d132218;
     padding: 20px;
@@ -466,8 +497,98 @@ button:hover{
 }
 
 
+.text-seller h2{
+    font-size: 35px; /* Tamaño de la fuente */
+    color: #a20b27; /* Color del texto */
+    font-weight: bold; /* Peso de la fuente */
+    font-family: "Cambria", sans-serif; /* Familia de la fuente */
+    margin-left: 150px;
+    line-height: 2; /* Altura de línea */
+    margin-bottom: 20px; /* Margen inferior */
+}
+
+.text-seller p{
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: lighter;
+    font-family: "Cambria", sans-serif;
+    margin-left: 150px;
+    max-width: 380px;
+}
+
+.conteiner-seller {
+    width: 50%;
+    margin: 0 auto;
+    border-bottom: 2px solid #ff0000;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    margin-left: 675px;
+    margin-top: -300px;
+    position: absolute;
+
+
+}
+
+.conteiner-seller h2{
+    font-size: 35px;
+    margin-top: 0;
+    font-family: "Cambria", sans-serif;
+    font-weight: bold;
+    color: #a20b27;
+}
+
+.conteiner-seller h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: lighter;
+    color: #ffffff;
+}
+
+
+.word-list {
+    list-style: none;
+    padding: 0;
+    margin-left: 675px;
+    margin-top: -375px;
+}
+
+.word-list li {
+    font-size: 18px;
+    color: #a20b27;
+    font-weight: bold;
+    font-family: "Cambria", sans-serif;
+    margin-bottom: 90px;
+}
+
+.word {
+    list-style: none;
+    padding: 0;
+    margin-left: 1000px;
+    margin-top: -443px;
+}
+
+.word li {
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: lighter;
+    font-family: "Cambria", sans-serif;
+    margin-bottom: 90px; /* Espacio entre cada palabra */
+}
+
 
 .errors-notification p{
     font-size: 20px;
     color: #A20B27;
+}
+
+.main-footer{
+    display: flex;
+    padding: 1rem;
+    background-color: #a20b27;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
 }
