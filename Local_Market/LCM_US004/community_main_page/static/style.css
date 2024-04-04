@@ -163,6 +163,16 @@ main {
     border-top: 2px solid #ffffff;
 }
 
+.profile_name{
+    font-size: 100px; 
+    color: antiquewhite; 
+    left: 5%; 
+    margin-top: 7%; 
+    position: absolute;
+}
+.profile_favorites{
+    
+}
 
 /* Customize these styles based on your preferences */
 .main-header h1 {
