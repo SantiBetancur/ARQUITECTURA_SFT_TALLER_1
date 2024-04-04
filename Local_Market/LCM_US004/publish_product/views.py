@@ -11,7 +11,7 @@ def publish(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('/EAFIT/products/')  
+            return redirect('/available_communities/EAFIT/products/')  
         context["message"] = "Error" 
         return render(request, "publish_product.html", context)
     context['form'] = form

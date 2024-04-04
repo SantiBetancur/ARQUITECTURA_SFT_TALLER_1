@@ -33,7 +33,7 @@ urlpatterns = [
     path('',cp_v.communityPage),
     path('available_communities/',cp_v.communityPage),
     path('logout/', cp_v.user_logout),
-    path('EAFIT/username/newProduct/', ps_v.publish),
+    path('available_communities/EAFIT/username/new_product/', ps_v.publish),
     path('login/',lg_v.Login),
     ]
    
