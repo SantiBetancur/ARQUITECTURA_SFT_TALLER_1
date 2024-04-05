@@ -36,6 +36,7 @@ urlpatterns = [
     path('available_communities/',cp_v.communityPage),
     path('logout/', cp_v.user_logout),
     path('available_communities/EAFIT/username/new_product/', ps_v.publish),
+    path('available_communities/EAFIT/username/new_product/image_generation/', ps_v.product_image_generation),
     path('login/',lg_v.Login),
     path('home/seller/', sp_v.seller_info),
     path('available_communities/profile/', pp_v.profile_page)

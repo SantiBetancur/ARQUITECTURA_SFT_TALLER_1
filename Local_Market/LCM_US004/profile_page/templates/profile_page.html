@@ -24,16 +24,23 @@
                         <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
                       </svg>
                 </a> 
-                <p style="font-size: 15px; margin: 0 10px 0 30px;">
-                    {{session_user}}
-                  </p>  
-            <a href="available_communities/profile/" >
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
-                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
-                  </svg>
-                  
-            </a>
+                <a href="">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                    </svg>   
+                </a>
+                
         </nav>
     </header>
+    <div class="app-content">
+        <h1 class="profile_name">
+            {{session_user}}
+        </h1>
+        <div class="seller_redirect" style="display: flex; background-color: aqua; color: black;">
+            <a href="/Sellerprofile/" style="width: 200px; height: 50px; background-color: green; justify-content: center;">BECOME A SELLER</a>
+        </div>
+        <div class="profile_favorites">
+        </div>
+    </div>
 </body>

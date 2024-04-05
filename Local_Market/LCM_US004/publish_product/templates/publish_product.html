@@ -1,6 +1,6 @@
 
 {% load static %}
-{% block content %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,6 +94,8 @@
 
     <p>Agrega un nuevo producto a tu catálogo</p>
 </header>
+
+
 <div class="app-content">
 
 
@@ -140,45 +142,45 @@
 
 
          </script>
+         <div class="form-group-textArea">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.description.id_for_label}}">Descripción (sé breve)</label>
+            {{form.description}}
+        </div>
             
 
-        <div style="display: flex; width: 100%; justify-content: end;">
-            <div class="form-group-textArea">
+        <div style="display: flex; width: 100%;">
+
+            <div class="form-group">
                 <!-- {{form.name.errors}} -->
-                <label for="{{form.description.id_for_label}}">Descripción (sé breve)</label>
-                {{form.description}}
+                <label for="{{form.image.id_for_label}}">Carga una portada</label>
+                {{form.image}}
+
             </div>
+            <div class="form-group" style="height: 100px; width: 130%; margin-left: 30px; background-color: #0b0c1a56; display: flex; justify-content: center; padding: 10px; border: solid 2px #fff">
+                
+                <a href="/available_communities/EAFIT/username/new_product/image_generation/" style="text-decoration: none; font-size: 18px; font-weight: bold; color: #ffffff; text-align: center;  background-color: transparent; line-height: 30px;">Generar <br>
+                     Portada</a>
 
-
-        <div class="form-group">
-            <!-- {{form.name.errors}} -->
-            <label for="{{form.image.id_for_label}}">Carga una portada</label>
-            {{form.image}}
+            </div>
+        
 
         </div>
-
-        </div>
+        
     
 
         
         
 
         <div class="submit-btn">
-            <input type = "submit" value="Create Product" class="forms_submit">
+            <input type = "submit" value="Crear Producto" class="forms_submit">
         </div>
 
 
     </form>
 
-    <div class="image-generation-cont">
-        <h2>Genera la imágen perfecta para tu producto</h2>
-        <p>Proporciona una descripción corta sobre la imagen que quieres:</p>
-        <input type="text" placeholder="Personas Felices comiendo galletas en la playa">
-        <button>Generar</button>
-    </div>
-  
 
 </div>
 
-{% endblock content %}
+
        

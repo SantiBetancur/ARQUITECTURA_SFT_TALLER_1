@@ -70,7 +70,7 @@
                 <p style="font-size: 15px; margin: 0 10px 0 30px;">
                     {{session_user}}
                   </p>  
-            <a href="available_communities/profile/">
+            <a href="/available_communities/profile/">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -92,7 +92,7 @@
     <main>
         <div class="product-grid" style="margin-top: 100px;">
             {% for p in dataset %}
-            <a href="EAFIT/products/" class="product">
+            <a href="/available_communities/EAFIT/products/" class="product">
                 
                     <img src="{{p.image.url}}" alt="Community Image" class="product-image">
                 <div class="community-info" style="margin: 10px; ">
