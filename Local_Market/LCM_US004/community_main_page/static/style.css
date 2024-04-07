@@ -346,6 +346,18 @@ button:hover{
     box-shadow: 3px 3px 0px #ffffff;
 }
 
+.a-img-generation {
+    height: 80px; width: 180%; margin-left: 30px; display: flex; justify-content: center;
+    border-radius: 10px;
+    background: #160f2959;
+    padding: 10px 0 10px 0;
+    transition:0.5s;
+}
+.a-img-generation:hover {
+    transform: scale(.9);
+    background: #160f29c2;
+    transition: 0.5s;
+}
 .image-generation-cont{
     width: 25%;
     height: 20%;
