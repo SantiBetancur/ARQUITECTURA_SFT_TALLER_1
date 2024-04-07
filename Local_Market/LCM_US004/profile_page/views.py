@@ -20,3 +20,4 @@ def profile_page(request):
 
 
     return render(request,'profile_page.html')
+

@@ -104,14 +104,14 @@
     
         <div class="image-generation-cont-img">
             <!--Here will be the generated image -->
-            <img src="" alt="">
+            <img src="{{ image_url }}" alt="Generated Product Image">
     
         </div>
         <p>{{prompt}}</p>
         <div class="image-generation-cont-sub">
             <p style="color: #333;">¿Te gustó esta imagen?</p>
             <button style="margin-bottom: 20px;">Sí, establecer como portada</button>
-            <button>No, generar otra</button>
+            <button onclick="reloadPage()">No, generar otra</button>
         </div>
        
         
@@ -119,4 +119,12 @@
 
 </div>
 
+
+<script>
+    function reloadPage() {
+        // Reloads the current document
+        window.location.reload();
+    }
+    </script>
+    
 {% endblock %}

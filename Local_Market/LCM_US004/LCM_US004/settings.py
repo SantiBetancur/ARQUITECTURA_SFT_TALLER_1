@@ -78,9 +78,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'LCM_US004.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
@@ -89,7 +89,7 @@ DATABASES = {
         'HOST' : 'localhost',
         'PORT' : '3306',
         'USER' : 'root',
-        'PASSWORD' : '0610Mysql+'
+        'PASSWORD' : '2005'
     }
 }
 
