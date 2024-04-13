@@ -141,7 +141,7 @@ def user_logout(request):
     logout(request)
     return redirect('/')
 
-OPENAI_API_KEY = "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"
+OPENAI_API_KEY = ""
 client = OpenAI(api_key=OPENAI_API_KEY)
             
 def generate_image(prompt):
