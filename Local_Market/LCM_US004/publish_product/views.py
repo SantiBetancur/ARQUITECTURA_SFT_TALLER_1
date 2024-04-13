@@ -5,7 +5,8 @@ from openai import OpenAI
 import requests
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from django.http import HttpResponse
+from community_main_page.models import products
+from django.core.files import File
 # Create your views here.
 
 def fetch_and_save_image(image_url, save_path):
@@ -21,6 +22,7 @@ def fetch_and_save_image(image_url, save_path):
 
 
 def publish(request):
+    
     context = {}
     form = ProductForm() 
     if request.method == "POST":
@@ -42,6 +44,7 @@ def publish(request):
 
 
 #This is the view of the image generation templates. 
+
 def product_image_generation(request):
     context = {}
     form = Image_prompt_form()
@@ -57,33 +60,98 @@ def product_image_generation(request):
 
             # Generate the image URL using the OpenAI API
             image_url = generate_image(user_prompt)
+            if image_url == 1:
+                context['error'] = "This option is not available at the moment"
+                return render(request, 'get_user_prompt_temp.html', context) 
 
             # Fetch and save the image locally
             try:
-                save_path = "path/to/save/image.jpg"  # Adjust based on your needs
+                save_path = "ia_images/image.jpg"  # Adjust based on your needs
                 saved_image_url = fetch_and_save_image(image_url, save_path)
                 context['image_url'] = saved_image_url
                 # If you want to show the image in your template, you can pass the saved_image_url to the context
+
+                #Set the image to the product
+
             except Exception as e:
                 context['error'] = str(e)
 
-        return render(request, 'image_generated_temp.html', context)
+        return redirect(f'/available_communities/EAFIT/username/new_product/image_generation/preview/?image_url={saved_image_url}&user_prompt={user_prompt}')
     
     context['form'] = form
     return render(request, 'get_user_prompt_temp.html', context) 
+
+
+def set_image_generated_to_product(request):
+    saved_image_url = request.GET.get('image_url')
+    user_prompt = request.GET.get('user_prompt')
+    context = {}
+    user = get_user(request)
+    if user.is_authenticated:
+        current_user = user
+        context['session_user'] = current_user.username 
+    
+    if request.method == 'POST':
+       
+        return redirect(f'/available_communities/EAFIT/username/new_product/image_generation/finish/?image_url={saved_image_url}')
+        
+
+
+    context['image_url'] = saved_image_url
+    context['prompt'] = user_prompt
+    return render(request, 'image_generated_temp.html', context)
+
+
+def finish_product_form(request):
+    context = {}
+    form = ProductForm
+    saved_image_url = request.GET.get('image_url')
+   
+    if request.method == 'POST':
+
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+           
+
+            with open('.'+saved_image_url   , 'rb') as image_file:
+                print(type(image_file))
+                django_file = File(image_file)
+                product = products.objects.create(image=django_file)
+                form.instance = product
+          
+            form.save()
+            return redirect('/available_communities/EAFIT/products/')  
+        else:
+            context["message"] = "Debes llenar los campos obligatorios" 
+            context['form'] = form
+            return render(request, "publish_product_finish.html", context)
+        
+    context['form'] = form
+    user = get_user(request)
+    current_user = ""
+    if user.is_authenticated:
+        current_user = user
+        context['session_user'] = current_user.username   
+    return render(request, "publish_product_finish.html", context)
+
+    
 
 
 def user_logout(request):
     logout(request)
     return redirect('/')
 
+OPENAI_API_KEY = "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"
 client = OpenAI(api_key=OPENAI_API_KEY)
             
 def generate_image(prompt):
-    response = client.images.generate(
-        model="dall-e-3",
-        prompt=prompt,
-        size="1024x1024",
-        n=1,
-    )
-    return response.data[0].url
+    try:
+        response = client.images.generate(
+            model="dall-e-3",
+            prompt=prompt,
+            size="1024x1024",
+            n=1,
+        )
+        return response.data[0].url
+    except Exception as e:
+        return 1

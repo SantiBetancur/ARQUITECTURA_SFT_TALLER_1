@@ -110,8 +110,11 @@
         <p>{{prompt}}</p>
         <div class="image-generation-cont-sub">
             <p style="color: #333;">¿Te gustó esta imagen?</p>
-            <button style="margin-bottom: 20px;">Sí, establecer como portada</button>
-            <button onclick="reloadPage()">No, generar otra</button>
+            <form method="POST" class="publish_fields" enctype="multipart/form-data" style="display: flex; margin: 0; padding: 0;">{% csrf_token %}
+                <button style="margin-bottom: 20px;">Sí, establecer como portada</button>
+            </form>
+            
+            <button onclick="reloadPage()">No, generar otra vez</button>
         </div>
        
         
