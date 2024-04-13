@@ -142,6 +142,9 @@ def user_logout(request):
     return redirect('/')
 
 
+
+
+
 def generate_image(prompt):
     try:
         response = client.images.generate(
