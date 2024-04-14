@@ -40,7 +40,8 @@ urlpatterns = [
     path('available_communities/EAFIT/username/new_product/image_generation/preview/', ps_v.set_image_generated_to_product),
     path('available_communities/EAFIT/username/new_product/image_generation/finish/', ps_v.finish_product_form),
     path('login/',lg_v.Login),
-    path('home/seller/', sp_v.seller_info),
+    path('available_communities/seller_registration/', sp_v.seller_registration),
+    path('available_communities/seller/<int:seller_id>', sp_v.seller_info),
     path('available_communities/profile/', pp_v.profile_page)
     ]
    

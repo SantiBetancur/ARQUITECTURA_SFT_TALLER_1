@@ -25,6 +25,7 @@ def publish(request):
     
     context = {}
     form = ProductForm() 
+    
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -141,10 +142,9 @@ def user_logout(request):
     logout(request)
     return redirect('/')
 
-
-
-
-
+OPENAI_API_KEY = "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"
+client = OpenAI(api_key=OPENAI_API_KEY)
+            
 def generate_image(prompt):
     try:
         response = client.images.generate(

@@ -3,6 +3,8 @@ from .models import products
 # I am use the Q class to realize the request of the search
 from django.db.models import Q
 from django.contrib.auth import logout, get_user
+from Sellerprofile.models import Seller
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -24,11 +26,12 @@ def home(request):
     }
 
     user = get_user(request)
-    current_user = ""
+    user_instance = None
     if user.is_authenticated:
-        current_user = user
-        context['session_user'] = current_user.username
-
+        user_instance = User.objects.get(id = user.id)
+        context['session_user'] = user_instance.username
+        is_seller = Seller.objects.filter(user_info = user_instance).exists()
+        context['is_seller'] = is_seller
     return render(request, "home.html", context)
 
 def prod_detail(request, product_id):
