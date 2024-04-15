@@ -81,8 +81,13 @@
             </button>
             {% if not is_seller %}
             
-            <a href="/available_communities/seller_registration/" style="font-size: 18px; display: block; color: #fff; text-decoration: none;">
+            <a href="/available_communities/seller_registration/" style="font-size: 15px; font-weight: bold; display: block; color: #ffffff; text-decoration: none; background-color: #0b0a22;">
                 Quiero ofecer productos
+            </a>
+            {% elif is_seller %}
+            <p style="font-size: 18px; font-weight: bold; margin-right: 20px; color: #e0e2ff;">{{seller_name}}</p>
+            <a href="/available_communities/seller/{{seller_id}}" style="font-size: 15px; font-weight: bold; display: block; color: #ffffff; text-decoration: none; background-color: #0b0a22;">
+                Administrar mi perfil
             </a>
         
             {% endif %}
@@ -167,7 +172,7 @@
                      <img src="{% static '/Images/LCM_Logo.png' %}" alt="Product_Photo" class="product-image" >
                      {% endif%}
                      
-                    <p class="product-seller">Seller Name</p>
+                    <p class="product-seller">{{p.seller_info.name}}</p>
                     <p class="product-name">{{p.name}}</p>
                     <p class="product-price">$ {{p.price}}</p>
                     

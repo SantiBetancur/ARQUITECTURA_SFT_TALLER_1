@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User as django_model_user
-
+from Sellerprofile.models import Seller
 # Create your models here.
 
 
@@ -10,6 +10,7 @@ class products(models.Model):
     description = models.TextField(max_length = 250)
     image = models.ImageField(upload_to="images/", null=True)
     rating = models.IntegerField(null = True, default = 0)
+    seller_info = models.ForeignKey(Seller, on_delete=models.CASCADE, default=1)
   
 class ProductUser(models.Model):
     user_info = models.ForeignKey(django_model_user, on_delete = models.CASCADE, default = 1)

@@ -7,6 +7,7 @@ from django.contrib.auth import logout, get_user
 from Sellerprofile.models import Seller
 from django.contrib.auth.models import User
 from django.db.models import Count
+from django.urls import reverse
 
 # Create your views here.
 
@@ -34,6 +35,11 @@ def home(request):
         context['session_user'] = user_instance.username
         is_seller = Seller.objects.filter(user_info = user_instance).exists()
         context['is_seller'] = is_seller
+        
+        if is_seller:
+            seller_instance = Seller.objects.get(user_info = user_instance)
+            context['seller_id'] = seller_instance.id
+            context['seller_name'] = seller_instance.name
     return render(request, "home.html", context)
 
 def prod_detail(request, product_id):
@@ -41,14 +47,15 @@ def prod_detail(request, product_id):
         context = {}
         context['dataset'] = product
         user = get_user(request)
-        current_user = ""
 
+        user_instance = None
+        has_duplicates = False
         if user.is_authenticated:
-            current_user = user
-            context['session_user'] = current_user.username
-
-            existing_fav = ProductUser.objects.filter(user_info_id = current_user, product_info_id = product_id).annotate(count=Count('id'))
+            user_instance = User.objects.get(id = user.id)
+            context['session_user'] = user_instance.username
+            existing_fav = ProductUser.objects.filter(user_info_id = user_instance, product_info_id = product_id).annotate(count=Count('id'))
             has_duplicates = len(existing_fav) > 0
+            
             
             if request.method == 'POST' and has_duplicates == False:
                 new_instance = ProductUser()
@@ -57,8 +64,9 @@ def prod_detail(request, product_id):
                 current_product = products.objects.get(pk = product_id)
                 new_instance.product_info = current_product
                 new_instance.save()
-                return redirect('/available_communities/EAFIT/products/')
-
+                return redirect(f'/available_communities/EAFIT/products/details/{product_id}')
+            context['seller_id'] = product.seller_info.id
+            context['has_duplicates'] = has_duplicates
             return render(request, 'product_detail.html', context)
             
             

@@ -89,11 +89,11 @@
             </nav>
         </header>
         <header class="sub-header">
-
+            {% if current_user_id == seller.user_info.id%}
             <p class="p-subn">Administra tu perfil de vendedor</p>
             <nav style="display: flex; width: 35%; align-items: center; justify-content: space-between;">
                 <p style="font-size: 15px;">Agrega un nuevo producto: </p>
-                <a href=""> 
+                <a href="/available_communities/seller/{{seller.id}}/new_product"> 
                     
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z"/>
@@ -114,6 +114,9 @@
                       </svg>
                 </a>
             </nav>
+         {% else %}
+         <p>Revisa la información del vendedor</p>
+         {% endif %}   
         </header>
 
         <div class="app-content">
@@ -128,35 +131,36 @@
                     <img src="{% static 'Images/Df_profile.png' %}" alt="{{ seller.name }} Photo">
         
                     {% endif %}
-                    <div class="about-seller">
-                        <h2>Sobre mi</h2>
-                        <p>{{seller.description}}</p>
-                    </div>
+                    
                 </div>
+                
         
         
                 <div class="container-seller">
                     <div class="seller-name-sub">
-                        <h2 style="font-size: 40px;">{{seller.name}}</h2>
-                        <h3>Vendedor activo en Local Market</h3>
+                            <h2 style="font-size: 40px;">{{seller.name}}</h2>
+                            <h3>Vendedor activo en Local Market</h3>
+
+                        </div>
+                        
+                        <br>
+                        <h2>Detalles del Vendedor</h2>
+                        <p><span>Edad:</span>               {{seller.age}}</p>
+                        <p><span>Email:</span>              {{seller.email}}</p>
+                        <p><span>Ubicación:</span>          {{seller.location}}</p>
+                        <p><span>Número de contacto:</span> {{seller.phone}}</p>
 
                     </div>
-                    
-                    <br>
-                    <h2>Detalles del Vendedor</h2>
-                    <p><span>Edad:</span>               {{seller.age}}</p>
-                    <p><span>Email:</span>              {{seller.email}}</p>
-                    <p><span>Ubicación:</span>          {{seller.location}}</p>
-                    <p><span>Número de contacto:</span> {{seller.phone}}</p>
-
-                </div>
         
                 <div>
-        
-
+                    
+                    
             </div>
             
-            
+            <div class="about-seller">
+                <h2>Sobre mi</h2>
+                <p>{{seller.description}}</p>
+            </div>
             
 
         </div>

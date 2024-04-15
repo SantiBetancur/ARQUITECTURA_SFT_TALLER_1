@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from publish_product.forms import ProductForm, Image_prompt_form
 from django.contrib.auth import logout, get_user
+from django.contrib.auth.models import User
 from openai import OpenAI
 import requests
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from community_main_page.models import products
 from django.core.files import File
+from Sellerprofile.models import Seller
 # Create your views here.
 
 def fetch_and_save_image(image_url, save_path):
@@ -21,27 +23,31 @@ def fetch_and_save_image(image_url, save_path):
 
 
 
-def publish(request):
+def publish(request, seller_id):
     
     context = {}
     form = ProductForm() 
-    
+    user = get_user(request)
+    seller_instance = Seller.objects.get(id = seller_id)
+
+    if user.is_authenticated:    
+        context['session_user'] = user.username 
+        
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            return redirect('/available_communities/EAFIT/products/')  
+            reg = form.save(commit=False)
+            reg.seller_info = seller_instance
+            reg.save()
+            return redirect(f'/available_communities/seller/{seller_instance.id}')  
         context["message"] = "Debes llenar los campos obligatorios" 
         context['form'] = form
         return render(request, "publish_product.html", context)
-    context['form'] = form
 
-    user = get_user(request)
-    current_user = ""
-    if user.is_authenticated:
-        current_user = user
-        context['session_user'] = current_user.username   
+    context['form'] = form
     return render(request, "publish_product.html", context)
+
+    
 
 
 #This is the view of the image generation templates. 

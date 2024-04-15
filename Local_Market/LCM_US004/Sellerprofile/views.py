@@ -19,7 +19,7 @@ def seller_info(request, seller_id):
         current_user = user
         context['session_user'] = current_user.username
 
-    # Pasa el nombre del vendedor al template
+    context['current_user_id'] = current_user.id
     return render(request, 'seller.html', context)
 
 
