@@ -127,7 +127,14 @@
                         
                     </div>
                     <nav style="display: flex; justify-content: center;margin-top: 30px ;">
+                        <!--The form action for 'favorito' is necessary, however the one for 'Contactar Vendedor' is there just so the buttons are aligned-->
                         <a href="" style="text-decoration: none; font-size: 20px;">Contactar Vendedor</a>
+                        
+                        <form method="POST">{% csrf_token %}
+                            <div class="submit-btn" style="margin-right: 20px;">
+                                <input type = "submit" value="favorito" class="forms_submit">
+                            </div>        
+                        </form>
                     </nav>  
     
                 </div>

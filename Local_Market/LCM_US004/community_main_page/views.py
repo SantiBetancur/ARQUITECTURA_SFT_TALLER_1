@@ -1,10 +1,12 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import products
+from .models import ProductUser
 # I am use the Q class to realize the request of the search
 from django.db.models import Q
 from django.contrib.auth import logout, get_user
 from Sellerprofile.models import Seller
 from django.contrib.auth.models import User
+from django.db.models import Count
 
 # Create your views here.
 
@@ -40,10 +42,26 @@ def prod_detail(request, product_id):
         context['dataset'] = product
         user = get_user(request)
         current_user = ""
+
         if user.is_authenticated:
             current_user = user
             context['session_user'] = current_user.username
+
+            existing_fav = ProductUser.objects.filter(user_info_id = current_user, product_info_id = product_id).annotate(count=Count('id'))
+            has_duplicates = len(existing_fav) > 0
+            
+            if request.method == 'POST' and has_duplicates == False:
+                new_instance = ProductUser()
+                user_id = User.objects.get(id = user.id)
+                new_instance.user_info = user_id
+                current_product = products.objects.get(pk = product_id)
+                new_instance.product_info = current_product
+                new_instance.save()
+                return redirect('/available_communities/EAFIT/products/')
+
             return render(request, 'product_detail.html', context)
+            
+            
         
 def user_logout(request):
     logout(request)
