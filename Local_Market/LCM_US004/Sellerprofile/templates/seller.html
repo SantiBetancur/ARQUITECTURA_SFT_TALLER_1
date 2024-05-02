@@ -11,7 +11,7 @@
         <header class="main-header">
         
         
-            <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
+            <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80"><a href="/available_communities/EAFIT/products/" style="font-size: 2rem; text-decoration: none;">Local Market</a></h1>
     
             <!--This content is showing in mobile-->
             <p  class="username-res-menu" >
@@ -24,7 +24,17 @@
         
             </button>
             <nav class = "nav-res-menu" id="menu">
-                
+                <a href="/available_communities/EAFIT/products/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                      </svg>
+                </a>
+                <a href="javascript:history.back()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                        Volver
+                        <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                      </svg>
+                    </a>
             
                 <a href="/logout/">
                     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
@@ -70,13 +80,19 @@
                             <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
                           </svg>
                     </a>
+                    <a href="javascript:history.back()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                            Volver
+                            <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                          </svg>
+                        </a>
                     <a href="/logout/">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
                             <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
                           </svg>
                     </a>
-                    <p style="font-size: 15px; margin: 0 10px 0 30px;">
+                    <p style="font-size: 20px; margin: 0 10px 0 30px;">
                         {{session_user}}
                       </p>    
                 <a href="/available_communities/profile/" >
@@ -121,7 +137,7 @@
 
         <div class="app-content">
 
-            <div style="display: flex;  width: 80%; justify-content: space-between;">
+            <div class="seller-profile-section">
                 <div class="seller-picture">
                     {% if seller.photo %}
                    
@@ -138,17 +154,36 @@
         
                 <div class="container-seller">
                     <div class="seller-name-sub">
-                            <h2 style="font-size: 40px;">{{seller.name}}</h2>
-                            <h3>Vendedor activo en Local Market</h3>
+                            <h1 >{{seller.name}}</h1>
+                            <h3>Vendedor activo en EAFIT</h3>
 
                         </div>
                         
                         <br>
                         <h2>Detalles del Vendedor</h2>
-                        <p><span>Edad:</span>               {{seller.age}}</p>
-                        <p><span>Email:</span>              {{seller.email}}</p>
-                        <p><span>Ubicación:</span>          {{seller.location}}</p>
-                        <p><span>Número de contacto:</span> {{seller.phone}}</p>
+                        <div class="seller-details">
+                            <div class="seller-details-1">
+                                
+                                <h4>Mi edad</h4>   
+                                <p> {{seller.age}} años</p>           
+                                <h4>Mi email</h4>   
+                                <p> {{seller.email}}</p>
+
+                            </div>
+                            
+                            <div class="seller-details-2">
+                                <h4 style="color: #d0dffc;">Dónde encontrarme</h4> 
+                                <p> {{seller.location}}</p>        
+                                <h4 style="color: #d0dffc;">Comunícate conmigo</h4>              
+                                <p style="font-size: 20px ; font-weight: bold; display: flex;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="margin-right: 7px;"  fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                                      </svg>
+                                    {{seller.phone}}</p>
+                            </div>
+
+                        </div>          
+                        
 
                     </div>
         

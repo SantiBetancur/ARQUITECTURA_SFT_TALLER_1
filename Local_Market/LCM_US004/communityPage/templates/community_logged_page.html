@@ -12,7 +12,7 @@
 
 <body>
     <header class="main-header">
-        <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM Logo" class="logo" width="80">Local Market</h1>
+        <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80"><a href="/available_communities" style="font-size: 2rem; text-decoration: none;">Local Market</a></h1>
         <!--This content is showing in mobile-->
         <p  class="username-res-menu" >
             {{session_user}}
@@ -67,7 +67,7 @@
                         <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
                       </svg>
                 </a> 
-                <p style="font-size: 15px; margin: 0 10px 0 30px;">
+                <p style="font-size: 20px; margin: 0 10px 0 30px;">
                     {{session_user}}
                   </p>  
             <a href="/available_communities/profile/">

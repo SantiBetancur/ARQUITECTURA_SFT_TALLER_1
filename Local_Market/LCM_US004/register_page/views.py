@@ -33,4 +33,4 @@ def register(request):
                 return render(request, 'register_page.html', {'form':form, 'reg_error_password_match':'La confirmación de la contraseña no coincide. Intenta de nuevo.'}) 
         except ValidationError as e:
             print(f"Password error {e.messages}")
-            return render(request, 'register_page.html', {'form':form, 'reg_error_password_val':'La contraseña debe tener mínimo 8 carácteres'})     
+            return render(request, 'register_page.html', {'form':form, 'reg_error_password_val':'La contraseña debe tener al menos 8 carácteres, una mayúscula, una minúscula y un número'})     

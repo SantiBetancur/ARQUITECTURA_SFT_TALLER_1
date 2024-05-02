@@ -52,7 +52,7 @@ def publish(request, seller_id):
 
 #This is the view of the image generation templates. 
 
-def product_image_generation(request):
+def product_image_generation(request, seller_id):
     context = {}
     form = Image_prompt_form()
     user = get_user(request)
@@ -83,13 +83,13 @@ def product_image_generation(request):
             except Exception as e:
                 context['error'] = str(e)
 
-        return redirect(f'/available_communities/EAFIT/username/new_product/image_generation/preview/?image_url={saved_image_url}&user_prompt={user_prompt}')
+        return redirect(f'/available_communities/seller/{seller_id}/new_product/image_generation/preview/?image_url={saved_image_url}&user_prompt={user_prompt}')
     
     context['form'] = form
     return render(request, 'get_user_prompt_temp.html', context) 
 
 
-def set_image_generated_to_product(request):
+def set_image_generated_to_product(request, seller_id):
     saved_image_url = request.GET.get('image_url')
     user_prompt = request.GET.get('user_prompt')
     context = {}
@@ -100,7 +100,7 @@ def set_image_generated_to_product(request):
     
     if request.method == 'POST':
        
-        return redirect(f'/available_communities/EAFIT/username/new_product/image_generation/finish/?image_url={saved_image_url}')
+        return redirect(f'/available_communities/seller/{seller_id}/new_product/image_generation/finish/?image_url={saved_image_url}')
         
 
 
@@ -109,7 +109,7 @@ def set_image_generated_to_product(request):
     return render(request, 'image_generated_temp.html', context)
 
 
-def finish_product_form(request):
+def finish_product_form(request, seller_id):
     context = {}
     form = ProductForm
     saved_image_url = request.GET.get('image_url')
@@ -127,7 +127,7 @@ def finish_product_form(request):
                 form.instance = product
           
             form.save()
-            return redirect('/available_communities/EAFIT/products/')  
+            return redirect(f'/available_communities/seller/{seller_id}/')  
         else:
             context["message"] = "Debes llenar los campos obligatorios" 
             context['form'] = form
