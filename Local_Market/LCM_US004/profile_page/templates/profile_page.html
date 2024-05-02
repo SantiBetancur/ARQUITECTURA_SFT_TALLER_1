@@ -33,14 +33,33 @@
                 
         </nav>
     </header>
-    <div class="app-content">
-        <h1 class="profile_name" style="color: antiquewhite;">
+    <div style="margin-top: 150px; margin-left: 50px;">
+        <h1 class="profile_name" style="color: whitesmoke;">
             {{session_user}}
         </h1>
-        <div class="seller_redirect" style="display: flex; background-color: aqua; color: black;">
-            <a href="/available_communities/seller_registration/" style="width: 200px; height: 50px; background-color: green; justify-content: center;">BECOME A SELLER</a>
-        </div>
-        <div class="profile_favorites">
-        </div>
+        <a href="/available_communities/seller_registration/" style="font-size: 15px; font-weight: bold; display: block; color: #ffffff; text-decoration: none; background-color: #0b0a22;">
+            Quiero ofecer productos
+        </a>
     </div>
+    <main>
+        {% block content %}
+        <div class="product-grid">
+            {% for p in favorite_products %}
+
+                <a  href="details/{{p.id}}" class="product">
+
+                     {% if p.image %}   
+                     <img src="{{p.image.url}}" alt="Product_Photo" class="product-image" >
+                     {% else %}
+                     <img src="{% static '/Images/LCM_Logo.png' %}" alt="Product_Photo" class="product-image" >
+                     {% endif%}
+                     
+                    <p class="product-seller">{{p.seller_info.name}}</p>
+                    <p class="product-name">{{p.name}}</p>
+                    <p class="product-price">$ {{p.price}}</p>
+                </a>
+            {% endfor %}
+        </div>        
+        {% endblock %}
+    </main>
 </body>

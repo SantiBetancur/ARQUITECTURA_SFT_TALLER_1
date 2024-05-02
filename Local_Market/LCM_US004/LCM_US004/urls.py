@@ -42,7 +42,7 @@ urlpatterns = [
     path('login/',lg_v.Login),
     path('available_communities/seller_registration/', sp_v.seller_registration),
     path('available_communities/seller/<int:seller_id>', sp_v.seller_info),
-    path('available_communities/profile/', pp_v.profile_page)
+    path('available_communities/profile/<int:user_id>', pp_v.profile_page)
     ]
    
 if settings.DEBUG:
