@@ -17,9 +17,6 @@ def communityPage(request):
         'dataset': communities_queryset
     }
 
-    if not communities_queryset.exists():
-        context['no_results'] = True
-
 
     user = get_user(request)
     current_user = ""

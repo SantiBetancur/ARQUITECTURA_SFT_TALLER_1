@@ -13,6 +13,6 @@ class products(models.Model):
     seller_info = models.ForeignKey(Seller, on_delete=models.CASCADE, default=1)
   
 class ProductUser(models.Model):
-    user_info = models.ForeignKey(django_model_user, on_delete = models.CASCADE, default = 1)
-    product_info = models.ForeignKey(products, on_delete=models.CASCADE, default = 1)
+    user_info = models.ForeignKey(django_model_user, on_delete = models.SET_NULL,null=True, default = 1)
+    product_info = models.ForeignKey(products, on_delete=models.SET_NULL, default = 1, null=True)
     

@@ -7,15 +7,18 @@ from django.contrib.auth import logout, get_user
 from Sellerprofile.models import Seller
 from django.contrib.auth.models import User
 from django.db.models import Count
-from django.urls import reverse
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 
 def home(request):
+    context = {}
 
-    search_query = request.GET.get("search")
     products_queryset = products.objects.all()
+    search_query = request.GET.get("search")
 
+    #Search by product attrs
     if search_query:
        
             # Si el valor de búsqueda no es un número, busca coincidencias parciales en los campos 'name' y 'description'
@@ -24,12 +27,16 @@ def home(request):
                 Q(price__icontains=search_query)
             )
 
-    context = {
-        'dataset': products_queryset
-    }
+   
+    #Pagination of the products queryset
+    queryset_paginator =   Paginator(products_queryset, 9)
+    page_number = request.GET.get('page')
+    page_obj = queryset_paginator.get_page(page_number)
+    context['page_obj'] = page_obj
 
     user = get_user(request)
     user_instance = None
+    seller_instance = None
     if user.is_authenticated:
         user_instance = User.objects.get(id = user.id)
         context['session_user'] = user_instance.username
@@ -37,7 +44,7 @@ def home(request):
         context['is_seller'] = is_seller
         
         if is_seller:
-            seller_instance = Seller.objects.get(user_info = user_instance)
+            seller_instance = Seller.objects.filter(user_info = user_instance).first()
             context['seller_id'] = seller_instance.id
             context['seller_name'] = seller_instance.name
     return render(request, "home.html", context)
@@ -57,14 +64,27 @@ def prod_detail(request, product_id):
             has_duplicates = len(existing_fav) > 0
             
             
-            if request.method == 'POST' and has_duplicates == False:
+            if request.method == 'POST':
                 new_instance = ProductUser()
-                user_id = User.objects.get(id = user.id)
-                new_instance.user_info = user_id
+                user = User.objects.get(id = user.id)
+                new_instance.user_info = user
                 current_product = products.objects.get(pk = product_id)
-                new_instance.product_info = current_product
-                new_instance.save()
-                return redirect(f'/available_communities/EAFIT/products/details/{product_id}')
+                if not has_duplicates: 
+                    new_instance.product_info = current_product
+                    new_instance.save()
+                    has_duplicates = True
+                    context['has_duplicates'] = has_duplicates
+                    context['seller_id'] = product.seller_info.id
+                    return render(request, 'product_detail.html', context)
+                elif has_duplicates:
+                    favorite = ProductUser.objects.filter(product_info = current_product)
+                    favorite.delete()
+                    has_duplicates = False
+                    context['has_duplicates'] = has_duplicates
+                    context['seller_id'] = product.seller_info.id
+                    return render(request, 'product_detail.html', context)
+            
+                  
             context['seller_id'] = product.seller_info.id
             context['has_duplicates'] = has_duplicates
             return render(request, 'product_detail.html', context)

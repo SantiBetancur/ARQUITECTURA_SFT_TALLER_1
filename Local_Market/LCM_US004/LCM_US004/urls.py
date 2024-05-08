@@ -31,6 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('available_communities/EAFIT/products/', cm_v.home),
     path('available_communities/EAFIT/products/details/<int:product_id>', cm_v.prod_detail),
+    path('available_communities/profile/details/<int:product_id>', cm_v.prod_detail),
     path('register/',rp_v.register),
     path('',cp_v.communityPage),
     path('available_communities/',cp_v.communityPage),
@@ -42,6 +43,9 @@ urlpatterns = [
     path('login/',lg_v.Login),
     path('available_communities/seller_registration/', sp_v.seller_registration),
     path('available_communities/seller/<int:seller_id>', sp_v.seller_info),
+    path('available_communities/seller/products/<int:seller_id>', sp_v.seller_products),
+    path('available_communities/seller/products/<int:seller_id>/edit/<int:product_id>', sp_v.product_edition),
+     path('available_communities/seller/<int:seller_id>/edit_me/', sp_v.seller_edition),
     path('available_communities/profile/<int:user_id>', pp_v.profile_page)
     ]
    

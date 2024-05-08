@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-xyhu*0af5r3k#3ggl=g8qk%4rfjc7ut*ok8-y6)1mmx+4*eo+&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['34.122.70.69']
+ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -84,14 +85,12 @@ WSGI_APPLICATION = 'LCM_US004.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'Local_Market',
-        'HOST' : 'localhost',
-        'PORT' : '3306',
-        'USER' : 'root',
-        'PASSWORD' : 'Jeronimo1303'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 
 # Password validation

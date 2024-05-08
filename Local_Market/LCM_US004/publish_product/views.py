@@ -31,7 +31,8 @@ def publish(request, seller_id):
     seller_instance = Seller.objects.get(id = seller_id)
 
     if user.is_authenticated:    
-        context['session_user'] = user.username 
+        context['username'] = user.username
+        context['current_user_id'] = user.id
         
     if request.method == "POST":
         form = ProductForm(request.POST, request.FILES)
@@ -63,27 +64,28 @@ def product_image_generation(request, seller_id):
         form = Image_prompt_form(request.POST)
         if form.is_valid():
             user_prompt = form.cleaned_data['user_image_prompt']
-            context['prompt'] = user_prompt
+            if user_prompt:
+                context['prompt'] = user_prompt
 
-            # Generate the image URL using the OpenAI API
-            image_url = generate_image(user_prompt)
-            if image_url == 1:
-                context['error'] = "This option is not available at the moment"
-                return render(request, 'get_user_prompt_temp.html', context) 
+                # Generate the image URL using the OpenAI API
+                image_url = generate_image(user_prompt)
+                if image_url == 1:
+                    context['error'] = "This option is not available at the moment"
+                    return render(request, 'get_user_prompt_temp.html', context) 
 
-            # Fetch and save the image locally
-            try:
-                save_path = "ia_images/image.jpg"  # Adjust based on your needs
-                saved_image_url = fetch_and_save_image(image_url, save_path)
-                context['image_url'] = saved_image_url
-                # If you want to show the image in your template, you can pass the saved_image_url to the context
+                # Fetch and save the image locally
+                try:
+                    save_path = "ia_images/image.jpg"  # Adjust based on your needs
+                    saved_image_url = fetch_and_save_image(image_url, save_path)
+                    context['image_url'] = saved_image_url
+                    # If you want to show the image in your template, you can pass the saved_image_url to the context
 
-                #Set the image to the product
+                    #Set the image to the product
 
-            except Exception as e:
-                context['error'] = str(e)
+                except Exception as e:
+                    context['error'] = str(e)
 
-        return redirect(f'/available_communities/seller/{seller_id}/new_product/image_generation/preview/?image_url={saved_image_url}&user_prompt={user_prompt}')
+            return redirect(f'/available_communities/seller/{seller_id}/new_product/image_generation/preview/?image_url={saved_image_url}&user_prompt={user_prompt}')
     
     context['form'] = form
     return render(request, 'get_user_prompt_temp.html', context) 

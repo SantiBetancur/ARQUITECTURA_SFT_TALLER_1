@@ -20,11 +20,11 @@ def register(request):
         #Here we try to get the form info throught the method POST and we need to analyze than that information is valid to save it.
         try:
             #Password validation
-            validate_password(request.POST['password'])
+           
             if request.POST['password'] == request.POST['password_confirmation']:
                 #New user creation validation
                 try:
-                    new_user = django_model_user.objects.create_user(username=request.POST['username'], password=request.POST['password'])
+                    new_user = django_model_user.objects.create_user(username=request.POST['username'], email=request.POST['email'],  password=request.POST['password'])
                     new_user.save()
                     return HttpResponseRedirect("/login/")
                 except:
