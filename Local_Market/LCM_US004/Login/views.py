@@ -1,8 +1,7 @@
 from Login.forms import LoginForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate,login
-from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm
+
 
 # Create your views here.
 
@@ -23,8 +22,6 @@ def Login(request):
 
         try:
             if(user is not None):
-                #Login user in the database
-                print(f'User: {username} is log in')
                 login(request, user)
                 return redirect("/available_communities/")
             else:

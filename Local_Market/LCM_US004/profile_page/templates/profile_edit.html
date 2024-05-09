@@ -29,7 +29,7 @@
 
         <div class="submit-btn">
             {% csrf_token %}
-            <input type = "submit" value="Editar perfil" class="forms_submit" >
+            <input type = "button" value="Editar perfil" class="forms_submit" name="edit" id="edit-form" onclick="confirmEdit()">
             <button type="button" name="delete" onclick="confirmDelete()" id="delete-form">Eliminar Cuenta</button>
             <script>
                 function confirmDelete() {
@@ -38,6 +38,15 @@
                         document.getElementById("delete-form").submit();
                     }
                 }
+
+                function confirmEdit() {
+                    if (confirm("Deberás volver a iniciar sesión, ¿deseas continuar?")) {
+                        document.querySelector('[name="edit"]').type = 'submit';
+                        document.getElementById("edit-form").submit();
+                    }
+                }
+
+                
             </script>
         </div>    
 

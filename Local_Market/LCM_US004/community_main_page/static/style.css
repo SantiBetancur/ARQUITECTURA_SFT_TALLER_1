@@ -738,7 +738,7 @@ button:hover{
 .profile-seller-min-view {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 80%;
     max-height: 200px;
     overflow: hidden;
     padding: 10px 20px 10px 20px;
@@ -752,11 +752,13 @@ button:hover{
     transform: scale(1.1);
     transition: .5s;
 }
-    .profile-seller-min-view img {
-        width: 40%;
-        border-radius: 50%;
 
-    } 
+.profile-seller-min-view img {
+    width: 40%;
+    border-radius: 50%;
+
+} 
+
 .profile-seller-min-view p {
    font-size: 18px;
    font-weight: bold;
@@ -1009,13 +1011,12 @@ button:hover{
     font-weight: bold;
 }
 .profile-detail {
-    width: 30%;
+    width: 40%;
     background-color: #120e387a;
     border: 2px solid #fff;
     border-radius: 20px;
     padding: 20px;
     margin-right: 5%;
-    position: fixed;
     left: 5%;
     display: flex;
     justify-content: center;flex-direction: column;

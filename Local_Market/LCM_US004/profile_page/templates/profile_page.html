@@ -70,9 +70,16 @@
                     {% elif is_seller %}
                     <div class="profile-seller-min-view">
                         {% if seller.photo %}
-                        <img src="{{seller.photo.url}}" alt="{{seller.name}} profile photo">
+                     
+                            <img src="{{seller.photo.url}}" alt="{{seller.name}} profile photo">
+                  
+                        
                         {% else %}
-                        <img src="{% static 'Images/Df_profile.png' %}" alt="{{ seller.name }} Photo">
+                     
+                            <img src="{% static 'Images/Df_profile.png' %}" alt="{{ seller.name }} Photo">
+
+                     
+                        
                         {% endif %}
                         <div>
                             <p style="font-size: 15px; color: #adff94;">vendedor activo</p>

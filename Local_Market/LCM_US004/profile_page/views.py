@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from Sellerprofile.models import Seller
 from django.core.paginator import Paginator
 from .forms import UserForm
-
+from django.contrib.auth import authenticate,login
 
 # Create your views here.
 
@@ -81,18 +81,26 @@ def profile_edit(request, user_id):
                         U_User.username = request.POST['username']
                         U_User.email = request.POST['email']
                         if request.POST['password']:
-                            U_User.password = request.POST['password']
-                        U_User.save()
-                        return redirect(f'/available_communities/profile/{U_User.id}')
-                
+                            
+                            U_User.set_password(request.POST['password'])
+                            U_User.save()
+                            return redirect(f'/logut/')
+                        else:
+                            U_User.save()   
+                            return redirect(f'/logout/')
                 else:
 
     
                     U_User.email = request.POST['email']
                     if request.POST['password']:
-                            U_User.password = request.POST['password']
-                    U_User.save()
-                    return redirect(f'/available_communities/profile/{U_User.id}')
+                            
+                            U_User.set_password(request.POST['password'])
+                            U_User.save()         
+                            return redirect(f'/logout/')                       
+                    else:
+                        U_User.save()   
+                        return redirect(f'/logout/')
+                    
             else:
                 context['form'] = form
                 context['form_error'] = "La confirmación de la contraseña no coincide"
