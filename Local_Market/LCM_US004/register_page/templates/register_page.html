@@ -100,7 +100,8 @@
         <div class="app-content" style="margin-top: 15%;">
             {% block content %}
         
-                <form method="POST" class="publish_fields">{% csrf_token %}
+                <form method="POST" class="publish_fields">
+                    {% csrf_token %}
                         
                         <div class="form-group" >
                 

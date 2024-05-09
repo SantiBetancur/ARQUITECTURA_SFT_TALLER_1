@@ -46,35 +46,62 @@ def profile_edit(request, user_id):
     try:
         context = {}
         user = get_user(request)
-        user_instance = None
         U_User = User.objects.get(id = user_id)
-        print(U_User)
         form = UserForm(initial={'username' : U_User.username, 'email' : U_User.email})
+        is_seller = Seller.objects.filter(user_info = user).exists()
 
         if user.is_authenticated:
-            user_instance = User.objects.get(id=user.id)
-            context['session_user'] = user_instance.username
+            context['session_user'] = user.username
 
         if request.method == 'POST':
-            form = UserForm(request.POST, request.FILES)
             if 'delete' in request.POST:
-                U_User.delete()
-                return redirect(f'/available_communities/profile/{user.id}')
+                if is_seller:
+                    context['form'] = form
+                    context['form_error'] = "No puedes eliminar tu cuenta si te encuentras registrado como vendedor"
+                    return render(request, 'profile_edit.html', context)
 
-            if form.is_valid():
-                U_User.username = form.cleaned_data['username']
-                U_User.email = form.cleaned_data['email']
+                else:
+                    U_User.delete()
+                    return redirect(f'/logout/')
+        
+           
+                
+            if request.POST['password'] == request.POST['password_confirmation']:
 
-                U_User.save()
-                return redirect(f'/available_communities/profile/{user.id}')
-            
-            context['form'] = form
-            context['form_error'] = "Campos no válidos, intenta de nuevo."
-            return render(request, 'profile_edit.html', context)
+                if request.POST['username'] != U_User.username:
+
+                
+                    if User.objects.filter(username=request.POST['username']).exists():
+
+                        context['form'] = form
+                        context['form_error'] = "El usuario ingresado no está disponible"
+                        return render(request, 'profile_edit.html', context)
+                    else:
+
+                        U_User.username = request.POST['username']
+                        U_User.email = request.POST['email']
+                        if request.POST['password']:
+                            U_User.password = request.POST['password']
+                        U_User.save()
+                        return redirect(f'/available_communities/profile/{U_User.id}')
+                
+                else:
+
+    
+                    U_User.email = request.POST['email']
+                    if request.POST['password']:
+                            U_User.password = request.POST['password']
+                    U_User.save()
+                    return redirect(f'/available_communities/profile/{U_User.id}')
+            else:
+                context['form'] = form
+                context['form_error'] = "La confirmación de la contraseña no coincide"
+                return render(request, 'profile_edit.html', context)
+         
 
 
         context['form'] = form
         return render(request, 'profile_edit.html', context)
     except User.DoesNotExist:
-        return redirect(f'/available_communities/profile/{user.id}')    
+        return redirect(f'/')    
  

@@ -3,7 +3,8 @@
 {% load static %}
 {% block content %}
 
-<form method="POST" class="publish_fields" enctype="multipart/form-data" >{% csrf_token %}>
+<form method="POST" class="publish_fields" enctype="multipart/form-data" >
+    {% csrf_token %}
     <p style="color: #ca4545; font-size: 20px; font-weight: bold;">{{form_error}}</p>
         <div style="display: flex; flex-direction: column; padding: 10px; border-radius: 10px; margin-bottom: 20px;  background-color:#ffffff36; align-items: center; width: 100%;">
             <p style="font-size: 25px; font-weight: bold; color: #fff;">Cuenta</p>
@@ -15,20 +16,26 @@
                 <label for="form.email.id_for_label">Email</label>
                     {{form.email}}
             </div>
+            <div class="form-group">
+                <label for="form.email.id_for_label">Contraseña</label>
+                    {{form.password}}
+            </div>
+            <div class="form-group">
+                <label for="form.email.id_for_label">Confirma la contraseña</label>
+                    {{form.password_confirmation}}
+            </div>
         </div>
 
 
         <div class="submit-btn">
-            <input type = "submit" value="Editar perfil" class="forms_submit" style="background-color: green;">
-            <button type="submit" name="delete" onclick="confirmDelete()" id="delete-form">Eliminar Cuenta</button>
+            {% csrf_token %}
+            <input type = "submit" value="Editar perfil" class="forms_submit" >
+            <button type="button" name="delete" onclick="confirmDelete()" id="delete-form">Eliminar Cuenta</button>
             <script>
                 function confirmDelete() {
                     if (confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.")) {
                         document.querySelector('[name="delete"]').type = 'submit';
                         document.getElementById("delete-form").submit();
-                    }
-                    else {
-                        document.querySelector('[name="delete"]').type = 'button';
                     }
                 }
             </script>

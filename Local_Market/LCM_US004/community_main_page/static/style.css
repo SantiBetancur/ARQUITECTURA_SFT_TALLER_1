@@ -752,12 +752,11 @@ button:hover{
     transform: scale(1.1);
     transition: .5s;
 }
-.profile-seller-min-view img {
-    width: 40%;
+    .profile-seller-min-view img {
+        width: 40%;
+        border-radius: 50%;
 
-    border-radius: 10px;
-
-} 
+    } 
 .profile-seller-min-view p {
    font-size: 18px;
    font-weight: bold;
