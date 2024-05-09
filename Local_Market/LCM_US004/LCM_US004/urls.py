@@ -45,8 +45,10 @@ urlpatterns = [
     path('available_communities/seller/<int:seller_id>', sp_v.seller_info),
     path('available_communities/seller/products/<int:seller_id>', sp_v.seller_products),
     path('available_communities/seller/products/<int:seller_id>/edit/<int:product_id>', sp_v.product_edition),
-     path('available_communities/seller/<int:seller_id>/edit_me/', sp_v.seller_edition),
-    path('available_communities/profile/<int:user_id>', pp_v.profile_page)
+    path('available_communities/seller/<int:seller_id>/edit_me/', sp_v.seller_edition),
+    path('available_communities/profile/<int:user_id>', pp_v.profile_page),
+    path('available_communities/profile/<int:user_id>/edit_me/', pp_v.profile_edit)
+
     ]
    
 if settings.DEBUG:
