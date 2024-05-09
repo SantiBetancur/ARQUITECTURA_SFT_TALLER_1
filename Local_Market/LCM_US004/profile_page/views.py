@@ -84,7 +84,7 @@ def profile_edit(request, user_id):
                             
                             U_User.set_password(request.POST['password'])
                             U_User.save()
-                            return redirect(f'/logut/')
+                            return redirect(f'/logout/')
                         else:
                             U_User.save()   
                             return redirect(f'/logout/')
