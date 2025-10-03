@@ -15,7 +15,7 @@
 
 6. Access `localhost:8000` from a modern web browser.
 
-# Actividad 1 - Repositorio Github
+## Actividad 1 - Repositorio Github
 
 **Repositorio Taller #1:** https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git 
 
