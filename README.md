@@ -4,6 +4,7 @@
 
 **Repositorio original P1:** *https://github.com/Local-Markets/LCMrep.git*
 
+---
 
 ## Actividad 2 - Revisión Autocrítica
 
@@ -16,12 +17,16 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ### 1. Difuminado en la parte superior
 
-> El difuminado que aparece en la parte superior genera un obstáculo visual innecesario.  
-> En lugar de mejorar la estética, termina reduciendo la legibilidad en los formularios y complica la navegación.  
+> El difuminado que aparece en la parte superior genera un obstáculo visual innecesario.
+
+> En lugar de mejorar la estética, termina reduciendo la legibilidad en los formularios y complica la navegación.
+
 > Una interfaz debe priorizar **claridad y legibilidad** sobre efectos decorativos que no aportan un valor práctico.
 
- **Sugerencia de mejora**:  
-- Sustituir el difuminado por un fondo limpio y uniforme.  
+ **Sugerencia de mejora**:
+ 
+- Sustituir el difuminado por un fondo limpio y uniforme.
+   
 - Asegurar que los campos de formulario estén siempre completamente visibles.  
 
 <img src="https://github.com/user-attachments/assets/2b10fc61-3693-4662-ac68-ab335d182ceb" height="280" />
@@ -30,13 +35,18 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ### 2. Registro obligatorio y landing page confusa
 
-> La plataforma exige **registro previo** para visualizar productos, lo que genera fricción desde el inicio.  
-> Además, la **landing page** presenta una estructura parecida a la de un mapa de universidades, donde se localizan vendedores, lo que resulta poco intuitivo.  
+> La plataforma exige **registro previo** para visualizar productos, lo que genera fricción desde el inicio.
+
+> Además, la **landing page** presenta una estructura parecida a la de un mapa de universidades, donde se localizan vendedores, lo que resulta poco intuitivo.
+  
 > A esto se suma el uso de **alertas nativas del navegador**, que rompen la consistencia del diseño general.
 
- **Sugerencia de mejora**:  
-- Permitir la **navegación inicial sin registro**, al menos para explorar el catálogo.  
-- Diseñar una landing más clara y enfocada en el **valor principal** del sitio (mostrar productos).  
+ **Sugerencia de mejora**:
+ 
+- Permitir la **navegación inicial sin registro**, al menos para explorar el catálogo.
+  
+- Diseñar una landing más clara y enfocada en el **valor principal** del sitio (mostrar productos).
+  
 - Reemplazar las alertas del navegador por modales o notificaciones integradas al diseño.
 
 <img src="https://github.com/user-attachments/assets/a57bf2ea-0858-429c-960c-0c7fe88ed8ea" height="280" />
@@ -45,13 +55,18 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ### 3. Botón de corazón ambiguo en productos
 
-> En la página de detalle de los productos se incluye un **botón con ícono de corazón** en la parte inferior izquierda.  
-> Su funcionalidad no es clara: el usuario no sabe si significa “favorito”, “me gusta”, “guardar para después” o si está relacionado con la calificación del producto.  
+> En la página de detalle de los productos se incluye un **botón con ícono de corazón** en la parte inferior izquierda.
+ 
+> Su funcionalidad no es clara: el usuario no sabe si significa “favorito”, “me gusta”, “guardar para después” o si está relacionado con la calificación del producto.
+
 > Esto puede generar **confusión e indecisión** al interactuar con el sitio.
 
- **Sugerencia de mejora**:  
-- Añadir un **tooltip** o texto aclaratorio al pasar el cursor sobre el ícono.  
-- Usar un diseño coherente con patrones ya conocidos (ejemplo: corazón = favoritos).  
+ **Sugerencia de mejora**: 
+ 
+- Añadir un **tooltip** o texto aclaratorio al pasar el cursor sobre el ícono.
+  
+- Usar un diseño coherente con patrones ya conocidos (ejemplo: corazón = favoritos).
+   
 - Ubicar el botón en una zona más intuitiva, como la parte superior derecha de la tarjeta o junto a la calificación.
 
 <img src="https://github.com/user-attachments/assets/f4f3b3d1-5b4a-4c32-a768-ba58bae0a8e0" height="280" />
@@ -60,12 +75,16 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ### 4. Botón de flecha redundante
 
-> En la esquina superior derecha aparece un botón con un ícono de **flecha hacia atrás**.  
-> Su función es básicamente la misma que el **botón de retroceso del navegador**, lo que lo convierte en un elemento redundante.  
+> En la esquina superior derecha aparece un botón con un ícono de **flecha hacia atrás**.
+
+> Su función es básicamente la misma que el **botón de retroceso del navegador**, lo que lo convierte en un elemento redundante.
+
 > Además, su presencia puede generar **confusión** ya que no aporta una acción adicional clara.
 
- **Sugerencia de mejora**:  
-- Reemplazar este botón por una acción más útil (por ejemplo, **volver al listado de productos** en lugar de replicar el retroceso del navegador).  
+ **Sugerencia de mejora**: 
+
+- Reemplazar este botón por una acción más útil (por ejemplo, **volver al listado de productos** en lugar de replicar el retroceso del navegador).
+   
 - Incluir un ícono más representativo (ejemplo: una casa para volver a la página principal o un carrito para regresar a la tienda).  
 
 <img src="https://github.com/user-attachments/assets/3e5a0e08-0d15-4e0b-a0e6-63f1cf5e678f" height="280" />
