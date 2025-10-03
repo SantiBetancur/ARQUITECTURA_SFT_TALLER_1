@@ -171,7 +171,7 @@ En este proyecto, se aplicó el Principio de Inversión de Dependencias (DIP) en
 
 ### Cambios realizados
    
-a) Creación de repositories.py
+Creación de repositories.py
 
 Se crearon interfaces y sus implementaciones concretas para manejar las entidades de usuario, vendedor y productos favoritos:
 
@@ -234,12 +234,15 @@ class DjangoProductRepository(IProductRepository):
 ```
 
 
-Beneficio: separa la lógica de acceso a datos de la vista, permitiendo cambiar la implementación sin modificar la lógica de presentación.
+**Beneficio:**
 
-b) Creación de container.py
+> Separa la lógica de acceso a datos de la vista, permitiendo cambiar la implementación sin modificar la lógica de presentación.
+
+### Creación de container.py
 
 Se implementó un contenedor de dependencias utilizando la librería dependency-injector, centralizando la creación de repositorios:
 
+```python
 # profile_page/container.py
 from dependency_injector import containers, providers
 from profile_page.repositories import DjangoUserRepository, DjangoSellerRepository, DjangoProductRepository
@@ -248,20 +251,19 @@ class Container(containers.DeclarativeContainer):
     user_repo = providers.Factory(DjangoUserRepository)
     seller_repo = providers.Factory(DjangoSellerRepository)
     product_repo = providers.Factory(DjangoProductRepository)
+```
 
+**Beneficio:**
 
-Beneficio:
+> Centraliza las dependencias del módulo.
+> Permite cambiar implementaciones de forma global sin tocar las vistas.
+> Facilita testing con mocks o fakes al inyectar repositorios diferentes.
 
-Centraliza las dependencias del módulo.
-
-Permite cambiar implementaciones de forma global sin tocar las vistas.
-
-Facilita testing con mocks o fakes al inyectar repositorios diferentes.
-
-c) Modificación de views.py
+### Modificación de views.py
 
 Se refactorizaron las vistas profile_page y profile_edit para que reciban los repositorios como parámetros (inyección de dependencias). También se integró el contenedor para usar las implementaciones por defecto:
 
+```python
 # profile_page/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user
@@ -366,28 +368,29 @@ def profile_edit(
         return render(request, 'profile_edit.html', context)
     except Exception:
         return redirect('/')
+```
+ ---
+ 
+### Beneficios de estos cambios
 
+**Desacoplamiento:**
 
-Beneficios de estos cambios:
+- Las vistas ya no dependen directamente de los modelos de Django.
 
-Desacoplamiento:
+- Cambiar la lógica de acceso a datos no requiere modificar las vistas.
 
-Las vistas ya no dependen directamente de los modelos de Django.
+**Testabilidad:**
 
-Cambiar la lógica de acceso a datos no requiere modificar las vistas.
+- Se pueden inyectar repositorios falsos o mocks para pruebas unitarias, sin tocar la base de datos real.
 
-Testabilidad:
+**Mantenibilidad:**
 
-Se pueden inyectar repositorios falsos o mocks para pruebas unitarias, sin tocar la base de datos real.
+- Cambios futuros en la forma de obtener usuarios, vendedores o productos solo afectan los repositorios.
 
-Mantenibilidad:
+- La vista se mantiene limpia y centrada en la presentación.
 
-Cambios futuros en la forma de obtener usuarios, vendedores o productos solo afectan los repositorios.
+**Flexibilidad:**
 
-La vista se mantiene limpia y centrada en la presentación.
+- Se puede reemplazar completamente la implementación de repositorios usando el Container.
 
-Flexibilidad:
-
-Se puede reemplazar completamente la implementación de repositorios usando el Container.
-
-Compatible con patrones de arquitectura más avanzados, como servicios o CQRS.
+- Compatible con patrones de arquitectura más avanzados, como servicios o CQRS.
