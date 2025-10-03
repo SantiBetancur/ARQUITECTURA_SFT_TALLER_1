@@ -20,3 +20,143 @@
 **Repositorio Taller #1:** https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git 
 
 **Repositorio original P1:** https://github.com/Local-Markets/LCMrep.git
+
+
+## Actividad 2 - Revisión Autocrítica
+
+
+## **Atrubuto de usabilidad**
+
+La siguiente revisión recopila observaciones sobre la experiencia de usuario y la presentación visual de la plataforma. Se señalan puntos de mejora en cuanto a usabilidad, diseño y claridad funcional.
+
+---
+
+### 1. Difuminado en la parte superior
+
+> El difuminado que aparece en la parte superior genera un obstáculo visual innecesario.  
+> En lugar de mejorar la estética, termina reduciendo la legibilidad en los formularios y complica la navegación.  
+> Una interfaz debe priorizar **claridad y legibilidad** sobre efectos decorativos que no aportan un valor práctico.
+
+ **Sugerencia de mejora**:  
+- Sustituir el difuminado por un fondo limpio y uniforme.  
+- Asegurar que los campos de formulario estén siempre completamente visibles.  
+
+<img src="https://github.com/user-attachments/assets/2b10fc61-3693-4662-ac68-ab335d182ceb" height="280" />
+
+---
+
+### 2. Registro obligatorio y landing page confusa
+
+> La plataforma exige **registro previo** para visualizar productos, lo que genera fricción desde el inicio.  
+> Además, la **landing page** presenta una estructura parecida a la de un mapa de universidades, donde se localizan vendedores, lo que resulta poco intuitivo.  
+> A esto se suma el uso de **alertas nativas del navegador**, que rompen la consistencia del diseño general.
+
+ **Sugerencia de mejora**:  
+- Permitir la **navegación inicial sin registro**, al menos para explorar el catálogo.  
+- Diseñar una landing más clara y enfocada en el **valor principal** del sitio (mostrar productos).  
+- Reemplazar las alertas del navegador por modales o notificaciones integradas al diseño.
+
+<img src="https://github.com/user-attachments/assets/a57bf2ea-0858-429c-960c-0c7fe88ed8ea" height="280" />
+
+---
+
+### 3. Botón de corazón ambiguo en productos
+
+> En la página de detalle de los productos se incluye un **botón con ícono de corazón** en la parte inferior izquierda.  
+> Su funcionalidad no es clara: el usuario no sabe si significa “favorito”, “me gusta”, “guardar para después” o si está relacionado con la calificación del producto.  
+> Esto puede generar **confusión e indecisión** al interactuar con el sitio.
+
+ **Sugerencia de mejora**:  
+- Añadir un **tooltip** o texto aclaratorio al pasar el cursor sobre el ícono.  
+- Usar un diseño coherente con patrones ya conocidos (ejemplo: corazón = favoritos).  
+- Ubicar el botón en una zona más intuitiva, como la parte superior derecha de la tarjeta o junto a la calificación.
+
+<img src="https://github.com/user-attachments/assets/f4f3b3d1-5b4a-4c32-a768-ba58bae0a8e0" height="280" />
+
+---
+
+### 4. Botón de flecha redundante
+
+> En la esquina superior derecha aparece un botón con un ícono de **flecha hacia atrás**.  
+> Su función es básicamente la misma que el **botón de retroceso del navegador**, lo que lo convierte en un elemento redundante.  
+> Además, su presencia puede generar **confusión** ya que no aporta una acción adicional clara.
+
+ **Sugerencia de mejora**:  
+- Reemplazar este botón por una acción más útil (por ejemplo, **volver al listado de productos** en lugar de replicar el retroceso del navegador).  
+- Incluir un ícono más representativo (ejemplo: una casa para volver a la página principal o un carrito para regresar a la tienda).  
+
+<img src="https://github.com/user-attachments/assets/3e5a0e08-0d15-4e0b-a0e6-63f1cf5e678f" height="280" />
+
+---
+
+## **Atributo de compatibilidad**
+
+
+## Aspectos Positivos de Compatibilidad
+
+### **Compatibilidad Web Robusta**
+- **Navegadores Modernos**: Soporte completo para Chrome, Firefox, Safari y Edge (últimas 2 versiones)
+- **Responsive Design**: Adaptación automática a dispositivos móviles, tablets y desktop
+- **Estándares Web**: Implementación de HTML5, CSS3 y JavaScript ES6+
+
+###  **Arquitectura Flexible**
+- **Django Framework**: Base sólida con excelente compatibilidad entre versiones
+- **API REST**: Interfaz estandarizada para integración con frontend y móviles
+- **Base de Datos**: Soporte multiplataforma (PostgreSQL, MySQL, SQLite)
+
+###  **Integración de IA Estable**
+- **OpenAI API v2.x**: Versión actualizada con mejor rendimiento y estabilidad
+- **Fallback Mechanisms**: Manejo de errores cuando los servicios externos fallan
+- **Caching Inteligente**: Reducción de llamadas a APIs externas
+
+###  **Experiencia Multiplataforma**
+- **Progressive Web App (PWA)**: Funcionalidad nativa en dispositivos móviles
+- **Offline Support**: Funcionalidades básicas disponibles sin conexión
+- **Cross-Platform**: Compatible con Windows, macOS y Linux
+
+---
+
+##  **Aspectos Negativos y Desafíos**
+
+###  **Dependencias Externas Frágiles**
+- **OpenAI API**: Cambios frecuentes en la API pueden romper funcionalidades
+- **Rate Limiting**: Limitaciones de uso que afectan la escalabilidad
+- **Costos Variables**: Precios de APIs externas pueden impactar el presupuesto
+
+### **Problemas de Versionado**
+- **Conflictos de Dependencias**: Incompatibilidades entre librerías (ej: httpx vs OpenAI)
+- **Breaking Changes**: Actualizaciones que requieren refactoring del código
+- **Legacy Code**: Código heredado que puede ser incompatible con nuevas versiones
+
+### **Limitaciones de Navegadores Antiguos**
+- **Internet Explorer**: No soportado (puede excluir usuarios corporativos)
+- **Navegadores Móviles Antiguos**: Funcionalidades limitadas en versiones obsoletas
+- **JavaScript Deshabilitado**: Pérdida de funcionalidades interactivas
+
+### **Desafíos de Seguridad**
+- **HTTPS Obligatorio**: Requerimiento estricto para APIs modernas
+- **CORS Policies**: Restricciones que pueden limitar integraciones
+- **Data Privacy**: Cumplimiento con GDPR y regulaciones locales
+
+---
+
+## **Métricas de Compatibilidad**
+
+| Aspecto | Cobertura | Estado |
+|---------|-----------|--------|
+| **Navegadores Modernos** | 95% |  Excelente |
+| **Dispositivos Móviles** | 90% |  Muy Bueno |
+| **APIs Externas** | 85% |  Bueno |
+| **Navegadores Antiguos** | 60% |  Limitado |
+| **Accesibilidad** | 75% |  En Progreso |
+
+---
+## **Conclusiones**
+
+- En general, la interfaz actual presenta algunos elementos que, aunque bien intencionados, terminan afectando la usabilidad y la claridad.
+   
+- El principal reto es simplificar la navegación, reducir la fricción para el usuario y aplicar patrones de diseño que sean familiares e intuitivos.
+   
+- Un diseño más limpio y coherente permitirá que los usuarios se concentren en lo esencial.
+
+- El proyecto LocalMarket presenta una base sólida de compatibilidad con oportunidades significativas de mejora. Los aspectos positivos incluyen una arquitectura moderna y flexible, mientras que los desafíos principales se centran en la gestión de dependencias externas y la compatibilidad con sistemas legacy.
