@@ -230,7 +230,7 @@ class DjangoProductRepository(IProductRepository):
     def get_favorites_by_user(self, user: User) -> List[products]:
         favorite_products = ProductUser.objects.filter(user_info=user)
         product_ids = [fav.product_info_id for fav in favorite_products]
-        return products.objects.filter(pk__in=product_ids)
+        return products.objects.filter(pk__in=product_ids)```
 
 
 Beneficio: separa la lógica de acceso a datos de la vista, permitiendo cambiar la implementación sin modificar la lógica de presentación.
