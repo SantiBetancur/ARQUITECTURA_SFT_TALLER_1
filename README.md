@@ -1,4 +1,4 @@
-## Installation
+# Installation
 
 1. Clone the repository.
 
@@ -15,14 +15,14 @@
 
 6. Access `localhost:8000` from a modern web browser.
 
-## Actividad 1 - Repositorio Github
+# Actividad 1 - Repositorio Github
 
 **Repositorio Taller #1:** https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git 
 
 **Repositorio original P1:** https://github.com/Local-Markets/LCMrep.git
 
 
-## Actividad 2 - Revisión Autocrítica
+# Actividad 2 - Revisión Autocrítica
 
 
 ## **Atrubuto de usabilidad**
