@@ -1,8 +1,6 @@
 ## Actividad 1 - Repositorio Github
 
-**Repositorio Taller #1:** *https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git* 
-
-**Repositorio original P1:** *https://github.com/Local-Markets/LCMrep.git*
+**Repositorio Taller #1:** *https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git*  **Repositorio original P1:** *https://github.com/Local-Markets/LCMrep.git*
 
 ---
 
