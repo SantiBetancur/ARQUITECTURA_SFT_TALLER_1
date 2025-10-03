@@ -18,9 +18,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 ### 1. Difuminado en la parte superior
 
 > El difuminado que aparece en la parte superior genera un obstáculo visual innecesario.
-
 > En lugar de mejorar la estética, termina reduciendo la legibilidad en los formularios y complica la navegación.
-
 > Una interfaz debe priorizar **claridad y legibilidad** sobre efectos decorativos que no aportan un valor práctico.
 
  **Sugerencia de mejora**:
@@ -36,9 +34,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 ### 2. Registro obligatorio y landing page confusa
 
 > La plataforma exige **registro previo** para visualizar productos, lo que genera fricción desde el inicio.
-
 > Además, la **landing page** presenta una estructura parecida a la de un mapa de universidades, donde se localizan vendedores, lo que resulta poco intuitivo.
-  
 > A esto se suma el uso de **alertas nativas del navegador**, que rompen la consistencia del diseño general.
 
  **Sugerencia de mejora**:
@@ -56,9 +52,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 ### 3. Botón de corazón ambiguo en productos
 
 > En la página de detalle de los productos se incluye un **botón con ícono de corazón** en la parte inferior izquierda.
- 
 > Su funcionalidad no es clara: el usuario no sabe si significa “favorito”, “me gusta”, “guardar para después” o si está relacionado con la calificación del producto.
-
 > Esto puede generar **confusión e indecisión** al interactuar con el sitio.
 
  **Sugerencia de mejora**: 
@@ -76,9 +70,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 ### 4. Botón de flecha redundante
 
 > En la esquina superior derecha aparece un botón con un ícono de **flecha hacia atrás**.
-
 > Su función es básicamente la misma que el **botón de retroceso del navegador**, lo que lo convierte en un elemento redundante.
-
 > Además, su presencia puede generar **confusión** ya que no aporta una acción adicional clara.
 
  **Sugerencia de mejora**: 
@@ -97,21 +89,25 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 ## Aspectos Positivos de Compatibilidad
 
 ### **Compatibilidad Web Robusta**
+
 - **Navegadores Modernos**: Soporte completo para Chrome, Firefox, Safari y Edge (últimas 2 versiones)
 - **Responsive Design**: Adaptación automática a dispositivos móviles, tablets y desktop
 - **Estándares Web**: Implementación de HTML5, CSS3 y JavaScript ES6+
 
 ###  **Arquitectura Flexible**
+
 - **Django Framework**: Base sólida con excelente compatibilidad entre versiones
 - **API REST**: Interfaz estandarizada para integración con frontend y móviles
 - **Base de Datos**: Soporte multiplataforma (PostgreSQL, MySQL, SQLite)
 
 ###  **Integración de IA Estable**
+
 - **OpenAI API v2.x**: Versión actualizada con mejor rendimiento y estabilidad
 - **Fallback Mechanisms**: Manejo de errores cuando los servicios externos fallan
 - **Caching Inteligente**: Reducción de llamadas a APIs externas
 
 ###  **Experiencia Multiplataforma**
+
 - **Progressive Web App (PWA)**: Funcionalidad nativa en dispositivos móviles
 - **Offline Support**: Funcionalidades básicas disponibles sin conexión
 - **Cross-Platform**: Compatible con Windows, macOS y Linux
@@ -121,21 +117,25 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 ##  **Aspectos Negativos y Desafíos**
 
 ###  **Dependencias Externas Frágiles**
+
 - **OpenAI API**: Cambios frecuentes en la API pueden romper funcionalidades
 - **Rate Limiting**: Limitaciones de uso que afectan la escalabilidad
 - **Costos Variables**: Precios de APIs externas pueden impactar el presupuesto
 
 ### **Problemas de Versionado**
+
 - **Conflictos de Dependencias**: Incompatibilidades entre librerías (ej: httpx vs OpenAI)
 - **Breaking Changes**: Actualizaciones que requieren refactoring del código
 - **Legacy Code**: Código heredado que puede ser incompatible con nuevas versiones
 
 ### **Limitaciones de Navegadores Antiguos**
+
 - **Internet Explorer**: No soportado (puede excluir usuarios corporativos)
 - **Navegadores Móviles Antiguos**: Funcionalidades limitadas en versiones obsoletas
 - **JavaScript Deshabilitado**: Pérdida de funcionalidades interactivas
 
 ### **Desafíos de Seguridad**
+
 - **HTTPS Obligatorio**: Requerimiento estricto para APIs modernas
 - **CORS Policies**: Restricciones que pueden limitar integraciones
 - **Data Privacy**: Cumplimiento con GDPR y regulaciones locales
@@ -153,6 +153,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 | **Accesibilidad** | 75% |  En Progreso |
 
 ---
+
 ## **Conclusiones**
 
 - En general, la interfaz actual presenta algunos elementos que, aunque bien intencionados, terminan afectando la usabilidad y la claridad.
