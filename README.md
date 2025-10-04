@@ -81,7 +81,7 @@ pip install -r requirements-minimal.txt
 
 
 
-### Opcional (Intslación de mysqlclient): 
+### Opcional (Instalación de mysqlclient): 
 
 ```bash
 pip install mysqlclient
