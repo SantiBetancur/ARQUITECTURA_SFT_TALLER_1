@@ -234,7 +234,9 @@ class DjangoProductRepository(IProductRepository):
 
 **Beneficio:**
 
-> Separa la lógica de acceso a datos de la vista, permitiendo cambiar la implementación sin modificar la lógica de presentación.
+- Separa la lógica de acceso a datos de la vista, permitiendo cambiar la implementación sin modificar la lógica de presentación.
+
+---
 
 ### Creación de container.py
 
@@ -253,9 +255,13 @@ class Container(containers.DeclarativeContainer):
 
 **Beneficio:**
 
-> Centraliza las dependencias del módulo.
-> Permite cambiar implementaciones de forma global sin tocar las vistas.
-> Facilita testing con mocks o fakes al inyectar repositorios diferentes.
+- Centraliza las dependencias del módulo.
+  
+- Permite cambiar implementaciones de forma global sin tocar las vistas.
+  
+- Facilita testing con mocks o fakes al inyectar repositorios diferentes.
+
+--- 
 
 ### Modificación de views.py
 
@@ -270,7 +276,6 @@ from .forms import UserForm
 from .repositories import IUserRepository, ISellerRepository, IProductRepository
 from .container import Container
 
-# Obtenemos las implementaciones por defecto desde el contenedor
 user_repo: IUserRepository = Container.user_repo()
 seller_repo: ISellerRepository = Container.seller_repo()
 product_repo: IProductRepository = Container.product_repo()
