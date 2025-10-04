@@ -1,13 +1,15 @@
 ## Actividad 1 - Repositorio Github
 
-**Repositorio Taller #1:** *https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git*  **Repositorio original P1:** *https://github.com/Local-Markets/LCMrep.git*
+**Repositorio Taller #1:** *https://github.com/SantiBetancur/ARQUITECTURA_SFT_TALLER_1.git*  
+
+**Repositorio original P1:** *https://github.com/Local-Markets/LCMrep.git*
 
 ---
 
 ## Actividad 2 - Revisión Autocrítica
 
 
-## **Atrubuto de usabilidad**
+### **Atributo de usabilidad**
 
 La siguiente revisión recopila observaciones sobre la experiencia de usuario y la presentación visual de la plataforma. Se señalan puntos de mejora en cuanto a usabilidad, diseño y claridad funcional.
 
