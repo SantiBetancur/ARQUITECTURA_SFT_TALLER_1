@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List, Optional
 from django.contrib.auth.models import User
 from Sellerprofile.models import Seller
-from community_main_page.models import products, ProductUser
+from community_main_page.models import Product, ProductUser
 
 
 # ==== USER REPOSITORY ====
@@ -49,12 +49,12 @@ class DjangoSellerRepository(ISellerRepository):
 # ==== PRODUCT REPOSITORY ====
 class IProductRepository(ABC):
     @abstractmethod
-    def get_favorites_by_user(self, user: User) -> List[products]:
+    def get_favorites_by_user(self, user: User) -> List[Product]:
         pass
 
 
 class DjangoProductRepository(IProductRepository):
-    def get_favorites_by_user(self, user: User) -> List[products]:
+    def get_favorites_by_user(self, user: User) -> List[Product]:
         favorite_products = ProductUser.objects.filter(user_info=user)
         product_ids = [fav.product_info_id for fav in favorite_products]
-        return products.objects.filter(pk__in=product_ids)
+        return Product.objects.filter(pk__in=product_ids)   

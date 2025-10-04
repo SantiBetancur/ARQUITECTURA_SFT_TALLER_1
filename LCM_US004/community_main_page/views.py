@@ -98,20 +98,64 @@ New view function for product detail
 '''
 class ProductDetailView(TemplateView):
     template_name = 'product_detail.html'
+    
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         request = self.request
         product_id = kwargs['product_id']
-        product = get_object_or_404(Product, pk = product_id)
+        product = get_object_or_404(Product, pk=product_id)
         context['dataset'] = product
+        
         user = request.user
         if user.is_authenticated:
-            user_instance = User.objects.get(id = user.id)
+            user_instance = User.objects.get(id=user.id)
             context['session_user'] = user_instance.username
-            existing_fav = ProductUser.objects.filter(user_info_id = user_instance, product_info_id = product_id).annotate(count=Count('id'))
+            
+            # Verificar si el producto ya está en favoritos
+            existing_fav = ProductUser.objects.filter(
+                user_info_id=user_instance, 
+                product_info_id=product_id
+            ).annotate(count=Count('id'))
             context['has_duplicates'] = len(existing_fav) > 0
             context['seller_id'] = product.seller_info.id
+        
         return context
+    
+    def post(self, request, *args, **kwargs):
+        """Maneja la adición/eliminación de productos a favoritos"""
+        context = self.get_context_data(**kwargs)
+        product_id = kwargs['product_id']
+        user = request.user
+        
+        if not user.is_authenticated:
+            return self.render_to_response(context)
+        
+        user_instance = User.objects.get(id=user.id)
+        product = get_object_or_404(Product, pk=product_id)
+        
+        # Verificar si ya está en favoritos
+        existing_fav = ProductUser.objects.filter(
+            user_info_id=user_instance, 
+            product_info_id=product_id
+        )
+        
+        if existing_fav.exists():
+            # Eliminar de favoritos
+            existing_fav.delete()
+            context['has_duplicates'] = False
+        else:
+            # Agregar a favoritos
+            new_favorite = ProductUser()
+            new_favorite.user_info = user_instance
+            new_favorite.product_info = product
+            new_favorite.save()
+            context['has_duplicates'] = True
+        
+        # Actualizar contexto
+        context['session_user'] = user_instance.username
+        context['seller_id'] = product.seller_info.id
+        
+        return self.render_to_response(context)
 
 '''
 Old view function for product detail

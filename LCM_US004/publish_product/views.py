@@ -122,7 +122,7 @@ def finish_product_form(request, seller_id):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
            
-
+         
             with open('.'+saved_image_url   , 'rb') as image_file:
                 print(type(image_file))
                 django_file = File(image_file)
