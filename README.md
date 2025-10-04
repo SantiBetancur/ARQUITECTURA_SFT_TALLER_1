@@ -1,8 +1,8 @@
-# Ejecución Proyecto
+## Ejecución Proyecto
 
 ---
 
-# Acceso a Wiki
+## Acceso a Wiki
 
 A continuación se presenta el enlace a la wiki donde se presenta la documentación de todas las actividades propuestas en el taller.
 
