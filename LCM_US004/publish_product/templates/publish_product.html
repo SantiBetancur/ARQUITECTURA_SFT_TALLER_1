@@ -115,33 +115,7 @@
             <label for="{{form.price.id_for_label}}">Precio</label>
             {{form.price}}
         </div>
-        <script>
-           document.addEventListener('DOMContentLoaded', function() {
-                var numeroInput = document.getElementById('price-input');
-
-                numeroInput.addEventListener('input', function() {
-                    // Get the current input value
-                    var valor = numeroInput.value;
-
-                
-                    valor = valor.replace(/,/g, '');
-
-                    // Verify if the value is a number
-                    if (!isNaN(valor)) {
-                        // Formatear el valor con comas cada tres dígitos desde el final
-                        valor = Number(valor).toLocaleString('en-US');
-                    } else {
-                        alert("Solo puedes ingresar números en este campo");
-                        numeroInput.value = '';
-                    }
-
-                    // Actualizar el valor del campo de texto con el formato
-                    numeroInput.value = valor;
-                });
-            });
-
-
-         </script>
+       
          <div class="form-group-textArea">
             <!-- {{form.name.errors}} -->
             <label for="{{form.description.id_for_label}}">Descripción (sé breve)</label>

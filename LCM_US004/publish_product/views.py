@@ -6,9 +6,10 @@ from openai import OpenAI
 import requests
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from community_main_page.models import products
+from community_main_page.models import Product
 from django.core.files import File
 from Sellerprofile.models import Seller
+from communityPage.models import Community
 # Create your views here.
 
 def fetch_and_save_image(image_url, save_path):
@@ -125,7 +126,7 @@ def finish_product_form(request, seller_id):
             with open('.'+saved_image_url   , 'rb') as image_file:
                 print(type(image_file))
                 django_file = File(image_file)
-                product = products.objects.create(image=django_file)
+                product = Product.objects.create(image=django_file)
                 form.instance = product
           
             form.save()

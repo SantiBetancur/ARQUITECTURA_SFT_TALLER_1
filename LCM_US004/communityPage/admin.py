@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import communities
+from .models import Community
 
 # Register your models here.
-admin.site.register(communities)
+admin.site.register(Community)

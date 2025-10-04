@@ -1,5 +1,5 @@
 from django.db import models
-from communityPage.models import communities
+from communityPage.models import Community
 
 # Create your models here.
 
@@ -10,7 +10,7 @@ class User(models.Model):
 
 class Seller(models.Model):
         user_info = models.ForeignKey(User, on_delete = models.CASCADE)
-        seller_community = models.ForeignKey(communities, on_delete = models.CASCADE, default=1)
+        seller_community = models.ForeignKey(Community, on_delete = models.CASCADE, default=1)
         seller_name = models.CharField(max_length = 50, null = False)
         age = models.IntegerField(null=False)
         permission = models.FileField(upload_to = "documents/", null=True)

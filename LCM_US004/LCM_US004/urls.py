@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from community_main_page import views as cm_v
+from community_main_page import views as CommunityMainPage_v
 from communityPage import views as cp_v
 from publish_product import views as ps_v
 from register_page import views as rp_v
@@ -29,9 +29,9 @@ from Sellerprofile import views as sp_v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('available_communities/EAFIT/products/', cm_v.home),
-    path('available_communities/EAFIT/products/details/<int:product_id>', cm_v.prod_detail),
-    path('available_communities/profile/details/<int:product_id>', cm_v.prod_detail),
+    path('available_communities/EAFIT/products/', CommunityMainPage_v.HomeView.as_view()),
+    path('available_communities/EAFIT/products/details/<int:product_id>', CommunityMainPage_v.ProductDetailView.as_view()),
+    path('available_communities/profile/details/<int:product_id>', CommunityMainPage_v.ProductDetailView.as_view()),
     path('register/',rp_v.register),
     path('',cp_v.communityPage),
     path('available_communities/',cp_v.communityPage),

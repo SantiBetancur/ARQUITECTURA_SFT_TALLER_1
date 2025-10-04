@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, get_user
 from django.db.models import Q
-from community_main_page.models import products,ProductUser
+from community_main_page.models import Product,ProductUser
 from django.contrib.auth.models import User
 from Sellerprofile.models import Seller
 from django.core.paginator import Paginator
@@ -34,7 +34,7 @@ def profile_page(request,user_id):
     product_ids = [fav_prod.product_info_id for fav_prod in favorite_products]
 
     # Query the products using the product IDs
-    favorite_products_details = products.objects.filter(pk__in=product_ids)
+    favorite_products_details = Product.objects.filter(pk__in=product_ids)
     queryset_paginator =   Paginator(favorite_products_details, 3)
     page_number = request.GET.get('page')
     page_obj = queryset_paginator.get_page(page_number)

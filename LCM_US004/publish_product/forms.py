@@ -1,11 +1,11 @@
 from django import forms
-from community_main_page.models import products
+from community_main_page.models import Product
 
 
 class ProductForm(forms.ModelForm):
 
     class Meta:
-        model = products
+        model = Product
         fields = ['name', 'price', 'description', 'image']
     image = forms.ImageField(label='Avatar', required=False)
     def __init__(self, *args, **kwargs):

@@ -3,10 +3,9 @@ from .models import Seller
 from .forms import SellerForm
 from django.contrib.auth import logout, get_user
 from django.contrib.auth.models import User
-from community_main_page.models import products
 from django.core.paginator import Paginator
 from publish_product.forms import ProductForm
-from community_main_page.models import products
+from community_main_page.models import Product
 
 
 
@@ -43,7 +42,7 @@ def seller_products(request, seller_id):
     context['editing_seller'] = True
     user = get_user(request)
 
-    seller_products = products.objects.filter(seller_info = seller)
+    seller_products = Product.objects.filter(seller_info = seller)
     queryset_paginator =   Paginator(seller_products, 3)
     page_number = request.GET.get('page')
     page_obj = queryset_paginator.get_page(page_number)
@@ -61,9 +60,9 @@ def seller_products(request, seller_id):
                
                 btn_value = request.POST['edit'] 
                 return redirect(f'/available_communities/seller/products/{seller_id}/edit/{btn_value}')
-        exist_product = products.objects.filter(pk = request.POST['delete']).exists()        
+        exist_product = Product.objects.filter(pk = request.POST['delete']).exists()        
         if "delete" in request.POST and exist_product:
-            product = products.objects.get(pk = request.POST['delete'])
+            product = Product.objects.get(pk = request.POST['delete'])
             product.delete()
             
 
@@ -79,7 +78,7 @@ def product_edition(request, product_id, seller_id):
     context['page_text'] = "Edita el producto"
     context['editing_seller'] = True
     context['seller_id'] = seller_id
-    product = products.objects.get(pk = product_id)
+    product = Product.objects.get(pk = product_id)
 
     form = ProductForm(initial={'description': product.description, 'name': product.name, 'price':product.price})
 
@@ -122,7 +121,7 @@ def seller_edition(request, seller_id):
                 form = SellerForm(request.POST, request.FILES)
                 if 'delete' in request.POST:
 
-                    if products.objects.filter(seller_info = seller).exists():
+                    if Product.objects.filter(seller_info = seller).exists():
                         context['form_error'] = "Debes eliminar todos tus productos antes de eliminar tu cuenta"
                         context['form'] = form
                         context['editing_seller'] = True
