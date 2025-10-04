@@ -172,8 +172,12 @@ A continuación, se señalan puntos de mejora en cuanto a la compatibilidad.
 En este proyecto, se aplicó el Principio de Inversión de Dependencias (DIP) en las vistas de profile_page y profile_edit del módulo profile_page. El objetivo fue desacoplar las vistas de las implementaciones directas de los modelos de Django, creando repositorios abstractos que definen interfaces, y separando la lógica de acceso a datos de la lógica de presentación.
 
 ### Cambios realizados
-   
-Creación de repositories.py
+
+Estos son los cambios realizados en el proyecto para la realización de la inversión de dependencias.
+
+---
+
+### Creación de repositories.py
 
 Se crearon interfaces y sus implementaciones concretas para manejar las entidades de usuario, vendedor y productos favoritos:
 
