@@ -111,7 +111,6 @@ class ProductDetailView(TemplateView):
             user_instance = User.objects.get(id=user.id)
             context['session_user'] = user_instance.username
             
-            # Verificar si el producto ya está en favoritos
             existing_fav = ProductUser.objects.filter(
                 user_info_id=user_instance, 
                 product_info_id=product_id
@@ -133,25 +132,25 @@ class ProductDetailView(TemplateView):
         user_instance = User.objects.get(id=user.id)
         product = get_object_or_404(Product, pk=product_id)
         
-        # Verificar si ya está en favoritos
+   
         existing_fav = ProductUser.objects.filter(
             user_info_id=user_instance, 
             product_info_id=product_id
         )
         
         if existing_fav.exists():
-            # Eliminar de favoritos
+            
             existing_fav.delete()
             context['has_duplicates'] = False
         else:
-            # Agregar a favoritos
+           
             new_favorite = ProductUser()
             new_favorite.user_info = user_instance
             new_favorite.product_info = product
             new_favorite.save()
             context['has_duplicates'] = True
         
-        # Actualizar contexto
+     
         context['session_user'] = user_instance.username
         context['seller_id'] = product.seller_info.id
         
