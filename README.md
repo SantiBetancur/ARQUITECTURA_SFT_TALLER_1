@@ -89,25 +89,25 @@ A continuación, se señalan puntos de mejora en cuanto a la compatibilidad.
 
 ### Aspectos Positivos de Compatibilidad
 
-### **Compatibilidad Web Robusta**
+**Compatibilidad Web Robusta**
 
 - **Navegadores Modernos**: Soporte completo para Chrome, Firefox, Safari y Edge (últimas 2 versiones)
 - **Responsive Design**: Adaptación automática a dispositivos móviles, tablets y desktop
 - **Estándares Web**: Implementación de HTML5, CSS3 y JavaScript ES6+
 
-###  **Arquitectura Flexible**
+**Arquitectura Flexible**
 
 - **Django Framework**: Base sólida con excelente compatibilidad entre versiones
 - **API REST**: Interfaz estandarizada para integración con frontend y móviles
 - **Base de Datos**: Soporte multiplataforma (PostgreSQL, MySQL, SQLite)
 
-###  **Integración de IA Estable**
+**Integración de IA Estable**
 
 - **OpenAI API v2.x**: Versión actualizada con mejor rendimiento y estabilidad
 - **Fallback Mechanisms**: Manejo de errores cuando los servicios externos fallan
 - **Caching Inteligente**: Reducción de llamadas a APIs externas
 
-###  **Experiencia Multiplataforma**
+**Experiencia Multiplataforma**
 
 - **Progressive Web App (PWA)**: Funcionalidad nativa en dispositivos móviles
 - **Offline Support**: Funcionalidades básicas disponibles sin conexión
@@ -117,25 +117,25 @@ A continuación, se señalan puntos de mejora en cuanto a la compatibilidad.
 
 ###  **Aspectos Negativos y Desafíos**
 
-###  **Dependencias Externas Frágiles**
+**Dependencias Externas Frágiles**
 
 - **OpenAI API**: Cambios frecuentes en la API pueden romper funcionalidades
 - **Rate Limiting**: Limitaciones de uso que afectan la escalabilidad
 - **Costos Variables**: Precios de APIs externas pueden impactar el presupuesto
 
-### **Problemas de Versionado**
+**Problemas de Versionado**
 
 - **Conflictos de Dependencias**: Incompatibilidades entre librerías (ej: httpx vs OpenAI)
 - **Breaking Changes**: Actualizaciones que requieren refactoring del código
 - **Legacy Code**: Código heredado que puede ser incompatible con nuevas versiones
 
-### **Limitaciones de Navegadores Antiguos**
+**Limitaciones de Navegadores Antiguos**
 
 - **Internet Explorer**: No soportado (puede excluir usuarios corporativos)
 - **Navegadores Móviles Antiguos**: Funcionalidades limitadas en versiones obsoletas
 - **JavaScript Deshabilitado**: Pérdida de funcionalidades interactivas
 
-### **Desafíos de Seguridad**
+**Desafíos de Seguridad**
 
 - **HTTPS Obligatorio**: Requerimiento estricto para APIs modernas
 - **CORS Policies**: Restricciones que pueden limitar integraciones
@@ -143,7 +143,7 @@ A continuación, se señalan puntos de mejora en cuanto a la compatibilidad.
 
 ---
 
-## **Métricas de Compatibilidad**
+### **Métricas de Compatibilidad**
 
 | Aspecto | Cobertura | Estado |
 |---------|-----------|--------|
