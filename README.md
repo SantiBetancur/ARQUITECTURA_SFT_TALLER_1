@@ -83,10 +83,11 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ---
 
-## **Atributo de compatibilidad**
+### **Atributo de compatibilidad**
 
+A continuación, se señalan puntos de mejora en cuanto a la compatibilidad.
 
-## Aspectos Positivos de Compatibilidad
+### Aspectos Positivos de Compatibilidad
 
 ### **Compatibilidad Web Robusta**
 
@@ -114,7 +115,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ---
 
-##  **Aspectos Negativos y Desafíos**
+###  **Aspectos Negativos y Desafíos**
 
 ###  **Dependencias Externas Frágiles**
 
@@ -154,7 +155,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 ---
 
-## **Conclusiones**
+### **Conclusiones**
 
 - En general, la interfaz actual presenta algunos elementos que, aunque bien intencionados, terminan afectando la usabilidad y la claridad.
    
@@ -164,6 +165,7 @@ La siguiente revisión recopila observaciones sobre la experiencia de usuario y 
 
 - El proyecto LocalMarket presenta una base sólida de compatibilidad con oportunidades significativas de mejora. Los aspectos positivos incluyen una arquitectura moderna y flexible, mientras que los desafíos principales se centran en la gestión de dependencias externas y la compatibilidad con sistemas legacy.
 
+---
 
 ## Actividad 3 - Inversión de Dependencias
 
