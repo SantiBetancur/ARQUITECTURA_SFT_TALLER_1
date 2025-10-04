@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Market</title>
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+    <header class="main-header">
+        <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80"><a href="/available_communities" style="font-size: 1.5rem; text-decoration: none;">Local Market</a></h1>
+        <!--This content is showing in mobile-->
+        <p  class="username-res-menu" >
+            {{session_user}}
+          </p> 
+          <button class="menu-icon" id = 'toggle-menu'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+              </svg>
+    
+        </button>
+        <nav class = "nav-res-menu" id="menu">
+            
+           
+            <a href="/logout/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                  </svg>
+            </a>
+              
+        <a href="community/user/profile/{{user.id}} " >
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+        </a>
+    
+        </nav>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var toggleButton = document.getElementById('toggle-menu');
+                var menu = document.getElementById('menu');
+    
+                toggleButton.addEventListener('click', function() {
+                    if (menu.style.display === 'none') {
+                        menu.style.transition = '.5s'
+                        menu.style.display = 'flex'; // Mostrar el menú
+                    } else {
+                        menu.style.display = 'none'; // Ocultar el menú
+                    }
+                });
+            });
+        </script>
+        <!-- ------------------------------ -->
+
+        <nav class="main-nav">
+            
+                <a href="/logout/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                      </svg>
+                </a> 
+                <p style="font-size: 20px; margin: 0 10px 0 30px;">
+                    {{session_user}}
+                  </p>  
+            <a href="/available_communities/profile/{{user.id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                  </svg>
+            </a>
+        </nav>
+    </header>
+    <header class="sub-header">
+        <p class="p-subn">Comunidades</p>
+        <select name="community-selection" id="cm" class="community-selection">
+            {% if dataset %}
+                {% for c in dataset %}
+                    <option value="">{{c.name}}</option>
+                {% endfor %}
+            {% endif%}
+        </select>
+        <p class="p-subn">Comunidades Disponibles: 1</p>
+    </header>
+    <main>
+        <div class="community-grid">
+            {% if dataset %}
+            {% for p in dataset %}
+            <a class="community" href="/available_communities/EAFIT/products/">
+                
+                    <img src="{{p.image.url}}" alt="Community Image" class="community-image">
+                <div class="community-info" style="margin: 20px; ">
+                    <h2>{{p.name}}</h2>
+                    <div class="cm-sub-info">
+                        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <p >Vendedores</p>
+                            <p>Productos</p>
+                            <p>Ubicación</p>
+                        </div>   
+                        <div style="display: flex; flex-direction: column; justify-content: space-between; height: 80%;">
+                                <span>  {{p.sellers}}</span>
+                                <span>  {{p.products}}</span>
+                                <span>  {{p.location}}</span>
+                        </div>
+                    
+                    </div>         
+                    
+                </div>
+            </a>
+           
+            {% endfor %}
+
+        </div>
+        {% else %}
+        <div class="error-empty-db">
+            <p> No encontramos la comunidad que buscas</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m-2.715 5.933a.5.5 0 0 1-.183-.683A4.5 4.5 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.5 3.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3.032 1.75.5.5 0 0 1-.683.183M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
+              </svg>
+        </div>
+        {% endif %}
+    </main>

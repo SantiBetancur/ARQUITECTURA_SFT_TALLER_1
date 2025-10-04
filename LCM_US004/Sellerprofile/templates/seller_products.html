@@ -1,0 +1,92 @@
+{% extends 'seller.html'%}
+
+
+{% load static %}
+{% block content %}
+
+                {% if page_obj %}
+                <div style="display: flex; flex-direction: column;">
+
+                    <div class="product-grid">
+                        {% for p in page_obj %}
+                            <a  class="product">
+    
+                                {% if p.image %}   
+                                <img src="{{p.image.url}}" alt="Product_Photo" class="product-image" >
+                                {% else %}
+                                <img src="{% static '/Images/LCM_Logo.png' %}" alt="Product_Photo" class="product-image" >
+                                {% endif%}
+                                    
+                                <p class="product-name">{{p.name}}</p>
+                                <p class="product-seller">{{p.seller_info.name}}</p>
+                                <p class="product-price">$ {{p.price}}</p>
+                                
+                                <form method="POST"  enctype="multipart/form-data" class="edit-product-form"> {% csrf_token %}
+                                <button type="submit" name="edit" value="{{p.id}}"  >Editar</button>
+                                <button type="button" name="delete" value="{{p.id}}" onclick="confirmDelete(this)" id="delete-form">Eliminar</button>
+                                <script>
+                                    function confirmDelete(button) {
+                                        if (confirm("¿Estás seguro de que deseas eliminar este producto? Esta acción no se puede deshacer.")) {
+                                            button.type = 'submit';
+                                            button.form.submit();
+                                        }
+                
+                                    }
+                                </script>
+                                </form>
+                                
+                           </a>
+                           
+                        {% endfor %}
+                    </div>
+                    <div class="pagination">
+                        <div class="step-links">
+                            {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; Primero</a>
+                               
+                                <a href="?page={{ page_obj.previous_page_number }}">
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16" style="margin-right: 5px;">
+                                        <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                        <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                      </svg>
+                                      Prev
+                                </a>
+                                
+                            {% endif %}
+    
+                            <span class="current">
+                                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                            </span>
+    
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">
+                                    Sig
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16" style="margin-left: 5px;">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                                  </svg></a>
+                                  <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+                                
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+               
+
+             
+                
+            {% else %}
+            <div class="error-empty-db" style="margin-top: 10%;">
+                <p>Aún no vendes productos</p>
+                <a href="/available_communities/seller/{{seller.id}}/new_product" style="width: 70%; display: flex;  align-items: center; "> 
+                     Agrega uno nuevo  
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-bag-plus-fill" viewBox="0 0 16 16" style="margin-left: 20px;">
+                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5z"/>
+                    </svg>
+                </a>
+            </div>
+            {% endif %}
+
+{% endblock %}

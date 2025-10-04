@@ -1,0 +1,165 @@
+
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAFIT</title>
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<header class="main-header">
+        
+    <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80"><a href="/available_communities/EAFIT/products/" style="font-size: 1.5rem; text-decoration: none;">Local Market</a></h1>
+
+    <!--This content is showing in mobile-->
+    <p  class="username-res-menu" >
+        {{username}}
+      </p>
+    <button class="menu-icon" id="toggle-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+            <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+          </svg>
+
+    </button>
+    <nav class = "nav-res-menu" id="menu">
+        
+        <a href="javascript:history.back()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+            Volver
+            <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+          </svg>
+        </a>
+        <a href="/logout/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+              </svg>
+        </a>
+          
+    <a href="/available_communities/profile/{{current_user_id}}" >
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+            <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+          </svg>
+    </a>
+
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggleButton = document.getElementById('toggle-menu');
+            var menu = document.getElementById('menu');
+
+            toggleButton.addEventListener('click', function() {
+                if (menu.style.display === 'none') {
+                    menu.style.transition = '.5s'
+                    menu.style.display = 'flex'; // Mostrar el menú
+                } else {
+                    menu.style.display = 'none'; // Ocultar el menú
+                }
+            });
+        });
+    </script>
+
+    <!-- ---------------------------- -->
+    <nav class="main-nav">
+        
+        
+        <a  href="javascript:history.back()" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                Volver
+                <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+              </svg>
+            </a>
+            <a href="/logout/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                  </svg>
+            </a>
+            <p>
+                {{username}}
+              </p>    
+        <a href="/available_communities/profile/{{current_user_id}}" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+        </a>
+        
+    </nav>
+</header>
+<header class="sub-header">
+
+    <p>Agrega un nuevo producto a tu catálogo</p>
+</header>
+
+
+<div class="app-content">
+
+
+    <form method="POST" class="publish_fields" enctype="multipart/form-data">{% csrf_token %}
+        <div style="margin-bottom: 10px;">
+            <p style="color: white; font-size: 20px;">{{message}}</p>
+        </div>
+        
+        <div class="form-group">
+            <!-- {{form.name.errors}} --> 
+            <label for="{{form.name.id_for_label}}">Nombre del producto</label>
+            {{form.name}}
+        </div>
+
+        <div class="form-group">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.price.id_for_label}}">Precio</label>
+            {{form.price}}
+        </div>
+       
+         <div class="form-group-textArea">
+            <!-- {{form.name.errors}} -->
+            <label for="{{form.description.id_for_label}}">Descripción (sé breve)</label>
+            {{form.description}}
+        </div>
+            
+
+        <div style="display: flex; width: 100%;">
+
+            <div class="form-group">
+                <!-- {{form.name.errors}} -->
+                <label for="{{form.image.id_for_label}}">Carga una portada</label>
+                {{form.image}}
+
+            </div>
+            <div class="a-img-generation">
+                <p style="font-size: 18px; color: #fff; margin-right: 20px;">Generar portada</p>
+                <a href="image_generation/" style="text-decoration: none; font-size: 16px;"> 
+                    <span style="font-size: 19px; color: #ffffff;;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                        <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+                      </svg>
+                    </span>
+                </a>
+
+            </div>
+        
+
+        </div>
+        
+    
+
+        
+        
+
+        <div class="submit-btn">
+            <input type = "submit" value="Crear Producto" class="forms_submit">
+        </div>
+
+
+    </form>
+
+
+</div>
+
+
+       

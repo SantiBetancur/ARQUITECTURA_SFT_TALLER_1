@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EAFIT</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header class="main-header">
+        
+        
+        <h1><img src="{% static '/Images/LCM_Logo.png' %}" alt="LCM_Logo" class="logo" width="80">Local Market</h1>
+
+        <!--This content is showing in mobile-->
+        <p  class="username-res-menu" >
+            {{session_user}}
+          </p> 
+          <button class="menu-icon" id = 'toggle-menu'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
+                <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+              </svg>
+    
+        </button>
+        <nav class = "nav-res-menu" id="menu">
+
+
+            
+            <a href="javascript:history.back()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                Volver
+                <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+              </svg>
+            </a>
+            <a href="/logout/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                    <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                  </svg>
+            </a>
+              
+        <a href="/available_communities/profile/{{user.id}}" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+              </svg>
+        </a>
+    
+        </nav>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var toggleButton = document.getElementById('toggle-menu');
+                var menu = document.getElementById('menu');
+    
+                toggleButton.addEventListener('click', function() {
+                    if (menu.style.display === 'none') {
+                        menu.style.transition = '.5s'
+                        menu.style.display = 'flex'; // Mostrar el menú
+                    } else {
+                        menu.style.display = 'none'; // Ocultar el menú
+                    }
+                });
+            });
+        </script>
+        <!-- ------------------------------ -->
+
+
+        <nav class="main-nav">
+            <button class="menu-icon">
+
+            </button>
+           
+            <a  href="javascript:history.back()" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-compact-left" viewBox="0 0 16 16">
+                    Volver
+                    <path fill-rule="evenodd" d="M9.224 1.553a.5.5 0 0 1 .223.67L6.56 8l2.888 5.776a.5.5 0 1 1-.894.448l-3-6a.5.5 0 0 1 0-.448l3-6a.5.5 0 0 1 .67-.223"/>
+                  </svg>
+                </a>
+                <a href="/logout/">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z"/>
+                        <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708z"/>
+                      </svg>
+                </a>
+                <p style="font-size: 20px; margin: 0 10px 0 30px;">
+                    {{session_user}}
+                  </p>    
+            <a href="/available_communities/profile/{{user.id}}" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                  </svg>
+            </a>
+            
+        </nav>
+    </header>
+    <header class="sub-header">
+        
+        <a href="/available_communities/" class="p-subn" >EAFIT</a>
+        <form method= "GET" class="search_field">
+            <input type="text" class="serach_input" placeholder="Buscar por nombre | precio" name="search" id = "search-input">
+            <div class="search_btn">
+                <button type="submit">
+                    Buscar
+                </button>
+            </div>
+            
+        </form>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                 var numeroInput = document.getElementById('search-input');
+ 
+                 numeroInput.addEventListener('input', function() {
+                     // Get the current input value
+                     var valor = numeroInput.value;
+ 
+                 
+                     valor = valor.replace(/,/g, '');
+ 
+                     // Verify if the value is a number
+                     if (!isNaN(valor)) {
+                         // Formatear el valor con comas cada tres dígitos desde el final
+                         valor = Number(valor).toLocaleString('en-US');
+                     }
+ 
+                     // Actualizar el valor del campo de texto con el formato
+                     if (valor == 0){
+                        valor = '';
+                     }
+                     numeroInput.value = valor;
+                 });
+             });
+ 
+          </script>
+    </header>
+    <div class="sub-header-info-res">
+        <a href="/">EAFIT</a>
+        <p>Productos Disponibles: </p>
+    </div>
+    <main>
+        
+        {% block content %}
+
+                {% if page_obj %}
+                <div style="display: flex; flex-direction: column;">
+
+                    <div class="product-grid">
+                        {% for p in page_obj %}
+                            <a  href="details/{{p.id}}" class="product">
+    
+                                {% if p.image %}   
+                                <img src="{{p.image.url}}" alt="Product_Photo" class="product-image" >
+                                {% else %}
+                                <img src="{% static '/Images/LCM_Logo.png' %}" alt="Product_Photo" class="product-image" >
+                                {% endif%}
+                                    
+                                <p class="product-name">{{p.name}}</p>
+                                <p class="product-seller">{{p.seller_info.name}}</p>
+                                <p class="product-price">$ {{p.price}}</p>
+                                
+                           </a>
+                        {% endfor %}
+                    </div>
+                    <div class="pagination">
+                        <div class="step-links">
+                            {% if page_obj.has_previous %}
+                            <a href="?page=1">&laquo; Primero</a>
+                               
+                                <a href="?page={{ page_obj.previous_page_number }}">
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-double-left" viewBox="0 0 16 16" style="margin-right: 5px;">
+                                        <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                        <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                                      </svg>
+                                      Prev
+                                </a>
+                                
+                            {% endif %}
+    
+                            <span class="current">
+                                Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                            </span>
+    
+                            {% if page_obj.has_next %}
+                                <a href="?page={{ page_obj.next_page_number }}">
+                                    Sig
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16" style="margin-left: 5px;">
+                                    <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708"/>
+                                    <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708"/>
+                                  </svg></a>
+                                  <a href="?page={{ page_obj.paginator.num_pages }}">Último &raquo;</a>
+                                
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+               
+
+             
+                
+            {% else %}
+            <div class="error-empty-db">
+                <p>Aún no venden esto en esta comunidad</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-emoji-frown-fill" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16M7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5m-2.715 5.933a.5.5 0 0 1-.183-.683A4.5 4.5 0 0 1 8 9.5a4.5 4.5 0 0 1 3.898 2.25.5.5 0 0 1-.866.5A3.5 3.5 0 0 0 8 10.5a3.5 3.5 0 0 0-3.032 1.75.5.5 0 0 1-.683.183M10 8c-.552 0-1-.672-1-1.5S9.448 5 10 5s1 .672 1 1.5S10.552 8 10 8"/>
+                  </svg>
+            </div>
+            {% endif %}
+ 
+        {% endblock %}
+    </main>
+
+  
+
+  
+</body>
+</html>
