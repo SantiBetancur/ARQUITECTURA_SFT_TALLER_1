@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from publish_product.forms import ProductForm, Image_prompt_form
 from django.contrib.auth import logout, get_user
 from django.contrib.auth.models import User
-from openai import OpenAI
+from django.conf import settings
 import requests
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
@@ -10,13 +10,14 @@ from community_main_page.models import Product
 from django.core.files import File
 from Sellerprofile.models import Seller
 from communityPage.models import Community
-# Create your views here.
+from publish_product.adapters import OpenAIAdapter, DummyAdapter
+import logging
+
+logger = logging.getLogger(__name__)
 
 def fetch_and_save_image(image_url, save_path):
     response = requests.get(image_url)
     if response.status_code == 200:
-        # Assuming save_path includes the filename. For example, 'images/my_image.jpg'.
-        # You may need to adjust the path based on your MEDIA_ROOT settings.
         path = default_storage.save(save_path, ContentFile(response.content))
         return default_storage.url(path)
     else:
@@ -52,7 +53,7 @@ def publish(request, seller_id):
     
 
 
-#This is the view of the image generation templates. 
+    
 
 def product_image_generation(request, seller_id):
     context = {}
@@ -68,20 +69,33 @@ def product_image_generation(request, seller_id):
             if user_prompt:
                 context['prompt'] = user_prompt
 
-                # Generate the image URL using the OpenAI API
-                image_url = generate_image(user_prompt)
-                if image_url == 1:
+                adapter = None
+                adapter_instance = getattr(settings, 'IMAGE_GENERATOR_ADAPTER', None)
+                if adapter_instance and hasattr(adapter_instance, 'generate_image'):
+                    adapter = adapter_instance
+                else:
+                    openai_key = getattr(settings, 'OPENAI_API_KEY', None)
+                    if openai_key:
+                        try:
+                            from openai import OpenAI
+                            client = OpenAI(api_key=openai_key)
+                            adapter = OpenAIAdapter(client)
+                        except Exception:
+                            logger.exception('Failed to initialize OpenAI client')
+                            adapter = DummyAdapter()
+                    else:
+                        adapter = DummyAdapter()
+
+                image_url = adapter.generate_image(user_prompt)
+                if not image_url:
                     context['error'] = "This option is not available at the moment"
                     return render(request, 'get_user_prompt_temp.html', context) 
 
-                # Fetch and save the image locally
                 try:
                     save_path = "ia_images/image.jpg"  # Adjust based on your needs
                     saved_image_url = fetch_and_save_image(image_url, save_path)
                     context['image_url'] = saved_image_url
-                    # If you want to show the image in your template, you can pass the saved_image_url to the context
-
-                    #Set the image to the product
+                    
 
                 except Exception as e:
                     context['error'] = str(e)
@@ -151,17 +165,4 @@ def user_logout(request):
     logout(request)
     return redirect('/')
 
-OPENAI_API_KEY = "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"
-client = OpenAI(api_key=OPENAI_API_KEY)
-            
-def generate_image(prompt):
-    try:
-        response = client.images.generate(
-            model="dall-e-3",
-            prompt=prompt,
-            size="1024x1024",
-            n=1,
-        )
-        return response.data[0].url
-    except Exception as e:
-        return 1
+    
